@@ -1,0 +1,15 @@
+{
+  "id": "28d40e76-d692-ea5b-7af2-fd82749d0d4c",
+  "revision": 3,
+  "supplier": "Juniper Office GmbH",
+  "invoice_key": "INV-JO-555",
+  "invoice_face_amount": "230.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

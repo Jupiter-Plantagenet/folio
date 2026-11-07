@@ -1,0 +1,78 @@
+{
+ "bom": false,
+ "cells": [
+  {
+   "byte_end": 4,
+   "byte_start": 0,
+   "column": 1,
+   "quote": "item",
+   "row": 1,
+   "value": "item"
+  },
+  {
+   "byte_end": 13,
+   "byte_start": 5,
+   "column": 2,
+   "quote": "quantity",
+   "row": 1,
+   "value": "quantity"
+  },
+  {
+   "byte_end": 18,
+   "byte_start": 14,
+   "column": 3,
+   "quote": "note",
+   "row": 1,
+   "value": "note"
+  },
+  {
+   "byte_end": 31,
+   "byte_start": 20,
+   "column": 1,
+   "quote": "Aster cable",
+   "row": 2,
+   "value": "Aster cable"
+  },
+  {
+   "byte_end": 35,
+   "byte_start": 32,
+   "column": 2,
+   "quote": "100",
+   "row": 2,
+   "value": "100"
+  },
+  {
+   "byte_end": 38,
+   "byte_start": 36,
+   "column": 3,
+   "quote": "ok",
+   "row": 2,
+   "value": "ok"
+  },
+  {
+   "byte_end": 54,
+   "byte_start": 40,
+   "column": 1,
+   "quote": "Copper 5\" pipe",
+   "row": 3,
+   "value": "Copper 5\" pipe"
+  },
+  {
+   "byte_end": 57,
+   "byte_start": 55,
+   "column": 2,
+   "quote": "20",
+   "row": 3,
+   "value": "20"
+  },
+  {
+   "byte_end": 74,
+   "byte_start": 58,
+   "column": 3,
+   "quote": "\"rush, priority\"",
+   "row": 3,
+   "value": "rush, priority"
+  }
+ ],
+ "encoding": "utf-8"
+}

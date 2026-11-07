@@ -1,0 +1,15 @@
+{
+  "id": "f34335ed-fffb-282c-91df-70f5652f8abc",
+  "revision": 4,
+  "supplier": "Al-Safwa Electrical Trading Co.",
+  "invoice_key": "ASE-7720",
+  "invoice_face_amount": "2250.000",
+  "recognized_quantity": "0",
+  "net_amount": "0.000",
+  "tax_amount": "0.000",
+  "gross_amount": "0.000",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "KWD"
+}

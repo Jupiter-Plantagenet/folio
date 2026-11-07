@@ -1,0 +1,4 @@
+item,quantity
+=cmd|' /C calc'!A0,100
++SUM(1;2),20
+@HYPERLINK("http://x"),3

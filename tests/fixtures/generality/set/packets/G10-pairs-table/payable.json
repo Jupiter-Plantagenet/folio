@@ -1,0 +1,15 @@
+{
+  "id": "d87a1087-8804-ba82-8121-56e808976ec4",
+  "revision": 4,
+  "supplier": "Quillon Safety Products",
+  "invoice_key": "QSP-30071",
+  "invoice_face_amount": "210.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

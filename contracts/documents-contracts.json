@@ -1,0 +1,2873 @@
+{
+  "schema_version": "1.0",
+  "product": "documents",
+  "status": "proposed",
+  "screens": [
+    {
+      "id": "overview",
+      "reads": [
+        "DOC-case",
+        "DOC-run",
+        "DOC-job"
+      ],
+      "commands": [
+        "DOC-read",
+        "DOC-start"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "only current server counts; no seeded completion counts"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "no cases: onboarding; unavailable counts retain timestamp"
+      ],
+      "evidence": [
+        "queue snapshot",
+        "job age"
+      ],
+      "acceptance_ids": [
+        "DOC-T-FLOW",
+        "DOC-T-LOAD",
+        "DOC-T-UX"
+      ]
+    },
+    {
+      "id": "inbox",
+      "reads": [
+        "DOC-case",
+        "DOC-source",
+        "DOC-decision"
+      ],
+      "commands": [
+        "DOC-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "allowlisted search; confirmed vs candidate duplicates separated"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "no results clear filters; missing evidence remains open; deleted original tombstone"
+      ],
+      "evidence": [
+        "query+snapshot cursor",
+        "duplicate resolution history"
+      ],
+      "acceptance_ids": [
+        "DOC-T-INTAKE",
+        "DOC-T-STATES"
+      ]
+    },
+    {
+      "id": "import",
+      "reads": [
+        "DOC-source",
+        "DOC-case",
+        "DOC-job"
+      ],
+      "commands": [
+        "DOC-intake",
+        "DOC-source-read"
+      ],
+      "roles": [
+        "reviewer"
+      ],
+      "validation": [
+        "20MiB/file; PDF/CSV/XLSX; hash/MIME/signature and archive quotas"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "quarantine/upload progress; duplicate-link dialog; malformed rejection; incomplete packet retained"
+      ],
+      "evidence": [
+        "original digest",
+        "parser report",
+        "duplicate identity match"
+      ],
+      "acceptance_ids": [
+        "DOC-T-INTAKE",
+        "DOC-T-PARSER"
+      ]
+    },
+    {
+      "id": "document",
+      "reads": [
+        "DOC-source",
+        "DOC-field",
+        "DOC-provenance",
+        "DOC-approval"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-source-read",
+        "DOC-correct",
+        "DOC-start"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "correction requires reason/evidence and current case version"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "OCR pending; conflicting text; no-source alternate text; stale correction merge"
+      ],
+      "evidence": [
+        "old/new field revisions",
+        "exact spans and geometry"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROVENANCE",
+        "DOC-T-STALE",
+        "DOC-T-UX"
+      ]
+    },
+    {
+      "id": "reconciliation",
+      "reads": [
+        "DOC-field",
+        "DOC-provenance",
+        "DOC-decision",
+        "DOC-target-record"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-start",
+        "DOC-source-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "currency/unit consistency; receipt allocation; lookup freshness"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "missing PO/receipt request; conflicting supplier escalate; computed checks pending"
+      ],
+      "evidence": [
+        "formula version and inputs",
+        "target lookup snapshots"
+      ],
+      "acceptance_ids": [
+        "DOC-T-ARITH",
+        "DOC-T-MODEL"
+      ]
+    },
+    {
+      "id": "decision",
+      "reads": [
+        "DOC-decision",
+        "DOC-proposal",
+        "DOC-field"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-decide"
+      ],
+      "roles": [
+        "reviewer"
+      ],
+      "validation": [
+        "required reason; quantity proven and bounded; hold is no-write"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "invalid quantity retains draft; stale evidence blocks save; hold/no-change/escalate completion"
+      ],
+      "evidence": [
+        "reviewer reason",
+        "receipt basis",
+        "computed proposal"
+      ],
+      "acceptance_ids": [
+        "DOC-T-ARITH",
+        "DOC-T-FLOW",
+        "DOC-T-STALE"
+      ]
+    },
+    {
+      "id": "approvals",
+      "reads": [
+        "DOC-proposal",
+        "DOC-approval",
+        "DOC-membership"
+      ],
+      "commands": [
+        "DOC-read",
+        "DOC-detail",
+        "DOC-approve"
+      ],
+      "roles": [
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "not preparer; current intent/version/role"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "empty queue; denied self approval; expired/stale requires reconciliation"
+      ],
+      "evidence": [
+        "scoped queue",
+        "approval/rejection identity"
+      ],
+      "acceptance_ids": [
+        "DOC-T-AUTH",
+        "DOC-T-STALE"
+      ]
+    },
+    {
+      "id": "changes",
+      "reads": [
+        "DOC-proposal",
+        "DOC-approval",
+        "DOC-dispatch"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-approve",
+        "DOC-revoke"
+      ],
+      "roles": [
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "exact five-field diff; before revision; retained balance and digest confirmation"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "confirmation cancel preserves draft; rejection reason; stale invalidation; seal race too-late"
+      ],
+      "evidence": [
+        "bound intent",
+        "before snapshot",
+        "approval receipt"
+      ],
+      "acceptance_ids": [
+        "DOC-T-STALE",
+        "DOC-T-ARITH",
+        "DOC-T-AUTH"
+      ]
+    },
+    {
+      "id": "execution",
+      "reads": [
+        "DOC-run",
+        "DOC-job",
+        "DOC-dispatch",
+        "DOC-tool-call",
+        "DOC-verification"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-events",
+        "DOC-cancel",
+        "DOC-run-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "show actual durable checkpoints, no optimistic success"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "pending; lease lost; cancellation pending; ack lost uncertain; target unavailable"
+      ],
+      "evidence": [
+        "attempt and fence",
+        "actual tool receipts",
+        "dispatch checkpoints"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROOF",
+        "DOC-T-RECOVERY",
+        "DOC-T-COST"
+      ]
+    },
+    {
+      "id": "recovery",
+      "reads": [
+        "DOC-run",
+        "DOC-dispatch",
+        "DOC-target-operation",
+        "DOC-verification"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-recover",
+        "DOC-cancel",
+        "DOC-run-read"
+      ],
+      "roles": [
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "read-before-retry; no force-write; same operation key"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "matching verify; authoritative absent revalidate; unavailable/conflicting unresolved"
+      ],
+      "evidence": [
+        "fault schedule",
+        "target primary read",
+        "recovery decision"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROOF",
+        "DOC-T-RECOVERY"
+      ]
+    },
+    {
+      "id": "records",
+      "reads": [
+        "DOC-target-record",
+        "DOC-target-operation",
+        "DOC-verification"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-target-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "BFF proxies read under user membership; service credential never browser; verify exact scope"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "not checked never green; no-change independently checked; historical success/current drift distinct"
+      ],
+      "evidence": [
+        "independent before/after",
+        "protected field checks",
+        "operation receipt"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROOF",
+        "DOC-T-FLOW"
+      ]
+    },
+    {
+      "id": "evidence",
+      "reads": [
+        "DOC-artifact",
+        "DOC-provenance",
+        "DOC-verification",
+        "DOC-approval"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-export",
+        "DOC-artifact-read"
+      ],
+      "roles": [
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "versioned manifest; inclusion permission; checksum and redaction scope"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "export queued; originals expired; signed link expired; incomplete verification explicitly incomplete"
+      ],
+      "evidence": [
+        "bundle manifest",
+        "download access event",
+        "digest validation"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROVENANCE",
+        "DOC-T-RETENTION",
+        "DOC-T-DELIVERY"
+      ]
+    },
+    {
+      "id": "activity",
+      "reads": [
+        "DOC-event",
+        "DOC-artifact"
+      ],
+      "commands": [
+        "DOC-events",
+        "DOC-detail",
+        "DOC-export",
+        "DOC-audit-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "server actor/system filters; redaction; cursor scoped"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "no events; replay expired resnapshot; offline last-known label; unauthorized case404"
+      ],
+      "evidence": [
+        "durable sequence",
+        "event hashes",
+        "external checkpoint refs"
+      ],
+      "acceptance_ids": [
+        "DOC-T-AUTH",
+        "DOC-T-STATES",
+        "DOC-T-RECOVERY"
+      ]
+    },
+    {
+      "id": "settings",
+      "reads": [
+        "DOC-membership",
+        "DOC-settings",
+        "DOC-event"
+      ],
+      "commands": [
+        "DOC-settings",
+        "DOC-detail",
+        "DOC-workspace-read"
+      ],
+      "roles": [
+        "admin",
+        "viewer",
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "only admin writes; cannot self grant approver; retention scope explicit"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "saved/unsaved; denied viewer dialog; stale policy conflict; revoke session prompt"
+      ],
+      "evidence": [
+        "policy/auth epoch changes",
+        "membership audit",
+        "retention run receipt"
+      ],
+      "acceptance_ids": [
+        "DOC-T-AUTH",
+        "DOC-T-RETENTION",
+        "DOC-T-UX"
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "DOC-membership",
+      "fields": [
+        "workspace_id:uuid",
+        "user_id:uuid",
+        "roles:string[]",
+        "auth_epoch:int",
+        "active:bool"
+      ],
+      "invariants": [
+        "unique(workspace_id,user_id); real session identity, never request actor",
+        "approver cannot approve own prepared decision; admin is not automatically approver"
+      ]
+    },
+    {
+      "id": "DOC-case",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "version:int",
+        "packet_manifest_digest:sha256",
+        "state:string",
+        "business_key:string",
+        "current_decision_id:uuid?"
+      ],
+      "invariants": [
+        "unique(workspace_id,business_key) after confirmed supplier/invoice identity; ambiguous match stays unresolved",
+        "all object references composite FK(workspace_id,id); corrections append immutable versions"
+      ]
+    },
+    {
+      "id": "DOC-source",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "version:int",
+        "sha256:string",
+        "mime:string",
+        "size:int",
+        "blob_key:string",
+        "parser_manifest_digest:string",
+        "quarantine_state:string"
+      ],
+      "invariants": [
+        "20 MiB/file; maximum 50 pages/file and 200 pages/packet; decompressed XLSX <=100 MiB and 100000 cells",
+        "accepted PDF/CSV/XLSX only; original never overwritten; content hash does not itself establish business duplicate"
+      ]
+    },
+    {
+      "id": "DOC-provenance",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "kind:extracted|computed|lookup|human|unsupported",
+        "source_id:uuid?",
+        "source_version:int?",
+        "source_sha256:string?",
+        "text_artifact_sha256:string?",
+        "char_start:int?",
+        "char_end:int?",
+        "page:int?",
+        "boxes:object[]",
+        "transform:object?",
+        "sheet:string?",
+        "cells:string[]",
+        "byte_ranges:object[]",
+        "record_snapshot_digest:string?",
+        "input_provenance_ids:uuid[]",
+        "formula_version:string?",
+        "actor_id:uuid?",
+        "reason:string?"
+      ],
+      "invariants": [
+        "text offsets are half-open Unicode scalar indexes into immutable unnormalized page text; quote equals substring",
+        "OCR pixel boxes use top-left origin with raster width/height/DPI, rotation and inverse affine transform to PDF cropbox points; no approximate model-created coordinates accepted",
+        "CSV retains raw byte ranges, encoding, dialect and row/column; XLSX retains sheet/cell, formula and cached value separately; formulas never evaluated",
+        "every computed field links exact typed inputs and rounding policy; human correction retains old evidence, actor and reason"
+      ]
+    },
+    {
+      "id": "DOC-field",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "case_id:uuid",
+        "revision:int",
+        "name:string",
+        "typed_value:string|null",
+        "provenance_ids:uuid[]",
+        "support_status:supported|conflicting|missing"
+      ],
+      "invariants": [
+        "unsupported or conflicting required fields block executable proposal",
+        "money decimal strings with currency; quantity decimal string with explicit scale/unit; never binary float accounting"
+      ]
+    },
+    {
+      "id": "DOC-run",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "case_id:uuid",
+        "state:string",
+        "workflow_version:string",
+        "model_config_digest:string",
+        "tool_budget:int",
+        "token_budget:int",
+        "step_cursor:int",
+        "cancel_requested:bool",
+        "version:int"
+      ],
+      "invariants": [
+        "durable model inputs/outputs and actual tool receipts retained with secret redaction",
+        "LLM has read/propose/escalate only; neither target credentials nor approval capability"
+      ]
+    },
+    {
+      "id": "DOC-tool-call",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "run_id:uuid",
+        "attempt_id:uuid",
+        "tool_name:string",
+        "request_digest:string",
+        "input_refs:uuid[]",
+        "result_artifact_digest:string?",
+        "provider_request_id:string?",
+        "usage:object",
+        "status:string"
+      ],
+      "invariants": [
+        "tool arguments validated and workspace injected server-side",
+        "duplicate model calls may cost money but cannot produce protected effects"
+      ]
+    },
+    {
+      "id": "DOC-decision",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "case_id:uuid",
+        "version:int",
+        "prepared_by:uuid",
+        "mode:partial|hold|no_change|escalate",
+        "quantity:string?",
+        "reason:string",
+        "evidence_digest:string"
+      ],
+      "invariants": [
+        "partial quantity >0 and <= proven receipt quantity; multi-receipt duplicates and prior recognized quantities deducted",
+        "hold/no_change/escalate never invoke target mutation"
+      ]
+    },
+    {
+      "id": "DOC-proposal",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "revision:int",
+        "case_version:int",
+        "decision_id:uuid",
+        "source_manifest_digest:string",
+        "field_manifest_digest:string",
+        "lookup_manifest_digest:string",
+        "policy_version:string",
+        "target_id:uuid",
+        "target_revision:int",
+        "before_snapshot_digest:string",
+        "patch:object",
+        "intent_digest:string",
+        "expires_at:utc",
+        "state:string"
+      ],
+      "invariants": [
+        "immutable intent binds all sources, relevant lookups, exact old/new values, target, policy and expiry",
+        "only recognized_quantity/net_amount/tax_amount/gross_amount/status may change; invoice face value, bank, supplier, due date forbidden",
+        "one record atomic update, no multi-record partial transaction in release domain"
+      ]
+    },
+    {
+      "id": "DOC-approval",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "proposal_id:uuid",
+        "proposal_revision:int",
+        "intent_digest:string",
+        "approved_by:uuid",
+        "approver_auth_epoch:int",
+        "created_at:utc",
+        "expires_at:utc",
+        "state:active|rejected|revoked|expired|superseded"
+      ],
+      "invariants": [
+        "separation of duties enforced at decision preparation and approval",
+        "approval validated again at dispatch; source/lookup/policy/target change requires fresh proposal and approval"
+      ]
+    },
+    {
+      "id": "DOC-job",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "run_id:uuid",
+        "kind:string",
+        "status:string",
+        "attempt_id:uuid",
+        "lease_owner:uuid?",
+        "lease_until:utc?",
+        "fence:int",
+        "heartbeat_at:utc?",
+        "request_digest:string",
+        "idempotency_key:uuid",
+        "retry_count:int"
+      ],
+      "invariants": [
+        "enqueue plus state transition plus outbox in one transaction",
+        "claim SELECT FOR UPDATE SKIP LOCKED; DB-time lease 30s, heartbeat 10s; every update checks attempt,fence,lease",
+        "maximum five transient attempts with jittered 1/2/4/8/16s delay then recovery/escalation; attempt UUID never reused"
+      ]
+    },
+    {
+      "id": "DOC-dispatch",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "operation_key:uuid",
+        "proposal_id:uuid",
+        "intent_digest:string",
+        "target_revision:int",
+        "state:prepared|seal_pending|sealed|uncertain|applied|conflict|cancelled",
+        "grant_jti:uuid?",
+        "grant_generation:int",
+        "target_fence:int?",
+        "sealed_at:utc?"
+      ],
+      "invariants": [
+        "unique(workspace_id,target_id,operation_key) where target_id comes from immutable proposal",
+        "target-signed sealed grant is commit authority linearization point; revocation/cancel racing after seal cannot undo effect",
+        "same operation key and business intent digest across retries; fencing/grant envelope excluded from intent digest",
+        "Durable seal_pending gate is committed BEFORE any target authorization call; case/source/policy/auth edits and revoke/cancel may not pass until authoritative seal outcome reconciled. Process death cannot release logical gate."
+      ]
+    },
+    {
+      "id": "DOC-target-record",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "revision:int",
+        "supplier_id:uuid",
+        "invoice_key:string",
+        "invoice_face_amount:string",
+        "recognized_quantity:string",
+        "net_amount:string",
+        "tax_amount:string",
+        "gross_amount:string",
+        "status:string",
+        "bank_fingerprint:string",
+        "due_date:string"
+      ],
+      "invariants": [
+        "independent Northstar Ledger database and sessions; no workbench DB access",
+        "unique(workspace_id,supplier_id,invoice_key); conditional update requires strong ETag revision",
+        "operation receipt, before/after snapshots, revision increment and mutation commit atomically"
+      ]
+    },
+    {
+      "id": "DOC-target-operation",
+      "fields": [
+        "workspace_id:uuid",
+        "operation_key:uuid",
+        "intent_digest:string",
+        "target_id:uuid",
+        "before_revision:int",
+        "after_revision:int",
+        "before_digest:string",
+        "after_digest:string",
+        "status:applied",
+        "committed_at:utc",
+        "effect_sequence:int"
+      ],
+      "invariants": [
+        "unique(workspace_id,operation_key); same key/different intent =>409; matching duplicate returns original receipt before old If-Match check",
+        "receipt tombstones kept for target lifetime; no TTL silently permits replay; backup restore reconciles operation identity"
+      ]
+    },
+    {
+      "id": "DOC-verification",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "dispatch_id:uuid",
+        "expected_intent_digest:string",
+        "target_operation_digest:string?",
+        "before_snapshot_digest:string",
+        "after_snapshot_digest:string?",
+        "effect_history_digest:string?",
+        "outcome:matched|no_change|conflict|unavailable|unsupported",
+        "checks:object[]",
+        "verifier_version:string",
+        "checked_at:utc"
+      ],
+      "invariants": [
+        "separate read-only target identity and independently authored comparison logic; no agent narrative as effect evidence",
+        "match requires same operation, approved five fields, unchanged protected fields and allowed effect history; later external edit is drift, not silently current success"
+      ]
+    },
+    {
+      "id": "DOC-artifact",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "kind:string",
+        "sha256:string",
+        "size:int",
+        "schema_version:string",
+        "manifest:object",
+        "retention_until:utc",
+        "redaction_profile:string"
+      ],
+      "invariants": [
+        "content-addressed workspace-scoped objects; upload stage then verify digest then commit reference",
+        "export has member-scoped download ticket; originals excluded unless explicit authorized inclusion"
+      ]
+    },
+    {
+      "id": "DOC-event",
+      "fields": [
+        "workspace_id:uuid",
+        "id:uuid",
+        "sequence:int64",
+        "type:string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "correlation_id:uuid",
+        "occurred_at:utc",
+        "payload_digest:string",
+        "previous_digest:string"
+      ],
+      "invariants": [
+        "unique(workspace_id,sequence); transactionally committed outbox events are replayable, not assumed delivered",
+        "redacted payload; hash chain is tamper-evidence under trusted DB/admin and external checkpoint assumptions"
+      ]
+    },
+    {
+      "id": "DOC-settings",
+      "fields": [
+        "workspace_id:uuid",
+        "version:int",
+        "source_retention_days:int",
+        "decision_retention_days:int",
+        "provider_egress_enabled:bool",
+        "policy_version:string",
+        "export_hold:bool"
+      ],
+      "invariants": [
+        "source retention options 30/90/365 days, default90; decision retention proposed365 with legal holds",
+        "membership/policy changes bump auth epoch; event history and exported copies have separate deletion boundary"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "id": "DOC-read",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_id}/cases",
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "request": [
+        "cursor?:opaque",
+        "filter?:allowlisted",
+        "If-None-Match?:strong ETag"
+      ],
+      "response": [
+        "200 {items:CaseSummary[],next_cursor?,snapshot_version}",
+        "304"
+      ],
+      "errors": [
+        "401 SESSION_REQUIRED",
+        "404 NOT_FOUND_OR_FORBIDDEN",
+        "422 FILTER_INVALID"
+      ],
+      "idempotency": "safe read",
+      "concurrency": "stable cursor ordering (updated_at,id); cursor binds tenant/filter/snapshot",
+      "emits": []
+    },
+    {
+      "id": "DOC-detail",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}",
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "request": [],
+      "response": [
+        "200 {case,sources,fields,decisions,proposals,runs,verifications,version}"
+      ],
+      "errors": [
+        "401",
+        "404"
+      ],
+      "idempotency": "safe read",
+      "concurrency": "ETag case revision; includes currentness flags",
+      "emits": []
+    },
+    {
+      "id": "DOC-source-read",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_id}/sources/{source_id}",
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "request": [
+        "version:int",
+        "artifact?:page|text|original"
+      ],
+      "response": [
+        "200 authorized bytes/manifest with sha256, content disposition attachment for original"
+      ],
+      "errors": [
+        "401",
+        "404",
+        "410 RETENTION_DELETED"
+      ],
+      "idempotency": "safe read",
+      "concurrency": "immutable version; range requests authorized; no public bucket",
+      "emits": []
+    },
+    {
+      "id": "DOC-intake",
+      "method": "POST",
+      "path": "/api/v1/workspaces/{workspace_id}/intakes",
+      "roles": [
+        "reviewer"
+      ],
+      "request": [
+        "Idempotency-Key:uuid",
+        "files:multipart bytes",
+        "expected_sha256:string[]",
+        "packet_label:string"
+      ],
+      "response": [
+        "202 {case_id,job_id,duplicate_candidate_ids,state:quarantined}",
+        "200 replay prior result"
+      ],
+      "errors": [
+        "413 FILE_LIMIT",
+        "415 TYPE_REJECTED",
+        "409 IDEMPOTENCY_DIGEST_MISMATCH",
+        "422 ENCRYPTED_OR_MALFORMED"
+      ],
+      "idempotency": "unique(workspace_id,actor_id,route,key), canonical metadata plus file hashes digest; retain result365d",
+      "concurrency": "confirmed business duplicates link existing case under unique business key; ambiguous candidates require reviewer decision",
+      "emits": [
+        "DOC-intake-accepted",
+        "DOC-job-changed"
+      ]
+    },
+    {
+      "id": "DOC-correct",
+      "method": "PATCH",
+      "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/fields/{field_id}",
+      "roles": [
+        "reviewer"
+      ],
+      "request": [
+        "If-Match:case ETag",
+        "Idempotency-Key:uuid",
+        "typed_value:string",
+        "reason:string",
+        "evidence_refs:uuid[]"
+      ],
+      "response": [
+        "200 {case_version,field_revision,invalidated_proposal_ids}"
+      ],
+      "errors": [
+        "412 STALE_VERSION",
+        "422 UNSUPPORTED_CORRECTION",
+        "409 DISPATCH_ALREADY_SEALED"
+      ],
+      "idempotency": "workspace+actor+route+key/digest365d",
+      "concurrency": "lock case dispatch gate; append field version, invalidate unsealed proposals/approvals; sealed operation shows pending amendment, not retroactive invalidation",
+      "emits": [
+        "DOC-field-corrected",
+        "DOC-approval-changed"
+      ]
+    },
+    {
+      "id": "DOC-start",
+      "method": "POST",
+      "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/runs",
+      "roles": [
+        "reviewer"
+      ],
+      "request": [
+        "If-Match:case ETag",
+        "Idempotency-Key:uuid",
+        "provider_profile:local|openai",
+        "workflow_version:string"
+      ],
+      "response": [
+        "202 {run_id,job_id,event_cursor}"
+      ],
+      "errors": [
+        "412",
+        "403 PROVIDER_EGRESS_DISABLED",
+        "429 WORKSPACE_BUDGET",
+        "409 ACTIVE_RUN"
+      ],
+      "idempotency": "workspace+case+key/digest365d",
+      "concurrency": "single active run per case; transaction enqueue/outbox",
+      "emits": [
+        "DOC-run-changed",
+        "DOC-job-changed"
+      ]
+    },
+    {
+      "id": "DOC-decide",
+      "method": "POST",
+      "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/decisions",
+      "roles": [
+        "reviewer"
+      ],
+      "request": [
+        "If-Match:case ETag",
+        "Idempotency-Key:uuid",
+        "mode:partial|hold|no_change|escalate",
+        "quantity?:decimal-string",
+        "reason:string",
+        "evidence_digest:string"
+      ],
+      "response": [
+        "201 {decision_id,case_version,proposal_id?,state}"
+      ],
+      "errors": [
+        "412",
+        "422 QUANTITY_OR_EVIDENCE_INVALID",
+        "409 DISPATCH_ALREADY_SEALED"
+      ],
+      "idempotency": "workspace+actor+route+key/digest365d",
+      "concurrency": "deterministic calculator constructs exact proposal; hold and escalation create no dispatch",
+      "emits": [
+        "DOC-decision-saved",
+        "DOC-proposal-changed"
+      ]
+    },
+    {
+      "id": "DOC-approve",
+      "method": "POST",
+      "path": "/api/v1/workspaces/{workspace_id}/proposals/{proposal_id}/approvals",
+      "roles": [
+        "approver"
+      ],
+      "request": [
+        "If-Match:proposal ETag",
+        "Idempotency-Key:uuid",
+        "intent_digest:sha256",
+        "confirmation:approve|reject",
+        "reason?:string"
+      ],
+      "response": [
+        "201 {approval_id,approval_state,dispatch_id?,job_id?}"
+      ],
+      "errors": [
+        "403 SELF_APPROVAL",
+        "412 SOURCE_TARGET_POLICY_STALE",
+        "422 DIGEST_MISMATCH",
+        "409 EXPIRED"
+      ],
+      "idempotency": "workspace+approver+proposal+key/digest365d",
+      "concurrency": "lock case/proposal; live membership/auth_epoch check; revalidate source/lookup/policy and target snapshot; enqueue dispatch only on approve",
+      "emits": [
+        "DOC-approval-changed",
+        "DOC-job-changed"
+      ]
+    },
+    {
+      "id": "DOC-revoke",
+      "method": "POST",
+      "path": "/api/v1/workspaces/{workspace_id}/approvals/{approval_id}/revocations",
+      "roles": [
+        "approver"
+      ],
+      "request": [
+        "If-Match:approval ETag",
+        "Idempotency-Key:uuid",
+        "reason:string"
+      ],
+      "response": [
+        "200 {revoked:true} or 409 {state:sealed,outcome:pending_verification}"
+      ],
+      "errors": [
+        "403 NOT_AUTHORIZED_APPROVER",
+        "409 TOO_LATE_SEALED",
+        "412"
+      ],
+      "idempotency": "workspace+actor+route+key/digest365d",
+      "concurrency": "shares dispatch seal gate; pre-seal revoke wins, post-seal cannot unsend",
+      "emits": [
+        "DOC-approval-changed"
+      ]
+    },
+    {
+      "id": "DOC-cancel",
+      "method": "POST",
+      "path": "/api/v1/workspaces/{workspace_id}/runs/{run_id}/cancellations",
+      "roles": [
+        "reviewer"
+      ],
+      "request": [
+        "If-Match:run ETag",
+        "Idempotency-Key:uuid",
+        "reason:string"
+      ],
+      "response": [
+        "202 {cancel_requested:true,effect_state:none|sealed|uncertain}"
+      ],
+      "errors": [
+        "412",
+        "409 TERMINAL"
+      ],
+      "idempotency": "workspace+actor+route+key/digest365d",
+      "concurrency": "cooperative cancellation; same seal gate prevents unsealed commit, sealed remains verifying/uncertain until known",
+      "emits": [
+        "DOC-run-changed"
+      ]
+    },
+    {
+      "id": "DOC-recover",
+      "method": "POST",
+      "path": "/api/v1/workspaces/{workspace_id}/runs/{run_id}/recovery",
+      "roles": [
+        "reviewer"
+      ],
+      "request": [
+        "Idempotency-Key:uuid",
+        "If-Match:run ETag"
+      ],
+      "response": [
+        "202 {recovery_job_id,state:reconciling}"
+      ],
+      "errors": [
+        "412",
+        "409 RECOVERY_ACTIVE"
+      ],
+      "idempotency": "workspace+run+key/digest365d",
+      "concurrency": "read-only reconcile first; operation key unchanged; no UI force-write bypass",
+      "emits": [
+        "DOC-job-changed",
+        "DOC-run-changed"
+      ]
+    },
+    {
+      "id": "DOC-export",
+      "method": "POST",
+      "path": "/api/v1/workspaces/{workspace_id}/cases/{case_id}/exports",
+      "roles": [
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "request": [
+        "Idempotency-Key:uuid",
+        "case_version:int",
+        "include_originals:bool=false",
+        "redaction_profile:string"
+      ],
+      "response": [
+        "202 {artifact_job_id}"
+      ],
+      "errors": [
+        "403 ORIGINAL_EXPORT_DENIED",
+        "409 RETENTION_DELETED",
+        "422 REDACTION_INVALID"
+      ],
+      "idempotency": "workspace+actor+route+key/digest365d",
+      "concurrency": "snapshot export immutable; authorize source inclusion and download independently",
+      "emits": [
+        "DOC-artifact-ready",
+        "DOC-job-changed"
+      ]
+    },
+    {
+      "id": "DOC-events",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_id}/events",
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "request": [
+        "Last-Event-ID?:workspace-sequence",
+        "case_id?:uuid"
+      ],
+      "response": [
+        "200 text/event-stream {id,event,data}",
+        "410 {code:CURSOR_EXPIRED,snapshot_url,event_cursor}"
+      ],
+      "errors": [
+        "401",
+        "404",
+        "410"
+      ],
+      "idempotency": "safe replay",
+      "concurrency": "24h replay population; bounded buffers; disconnect slow consumers; membership rechecked every30s and on revocation signal; IDs cursor only not authority",
+      "emits": []
+    },
+    {
+      "id": "DOC-settings",
+      "method": "PATCH",
+      "path": "/api/v1/workspaces/{workspace_id}/settings",
+      "roles": [
+        "admin"
+      ],
+      "request": [
+        "If-Match:settings ETag",
+        "Idempotency-Key:uuid",
+        "source_retention_days:30|90|365",
+        "provider_egress_enabled:bool",
+        "member_changes?:object[]"
+      ],
+      "response": [
+        "200 {settings_version,policy_version,auth_epoch}"
+      ],
+      "errors": [
+        "412",
+        "422 LAST_ADMIN_OR_INVALID_ROLE",
+        "403 APPROVAL_ROLE_GRANT_REQUIRES_OWNER_REVIEW"
+      ],
+      "idempotency": "workspace+admin+route+key/digest365d",
+      "concurrency": "serial policy/auth changes; admin role alone cannot approve or self-grant approver",
+      "emits": [
+        "DOC-settings-changed",
+        "DOC-approval-changed"
+      ]
+    },
+    {
+      "id": "DOC-claim",
+      "method": "INTERNAL",
+      "path": "internal:jobs/claim",
+      "roles": [
+        "worker"
+      ],
+      "request": [
+        "short-lived credential:job-kind/workspace scope",
+        "kind:string"
+      ],
+      "response": [
+        "{job_id,attempt_id,fence,lease_until,input_refs}"
+      ],
+      "errors": [
+        "403 WRONG_SCOPE"
+      ],
+      "idempotency": "each attempt UUID immutable",
+      "concurrency": "transactional SKIP LOCKED claim increment fence; DB time",
+      "emits": [
+        "DOC-job-changed"
+      ]
+    },
+    {
+      "id": "DOC-heartbeat",
+      "method": "INTERNAL",
+      "path": "internal:jobs/{job_id}/heartbeat",
+      "roles": [
+        "worker"
+      ],
+      "request": [
+        "attempt_id:uuid",
+        "fence:int"
+      ],
+      "response": [
+        "{lease_until:utc}"
+      ],
+      "errors": [
+        "409 FENCE_OR_LEASE_LOST"
+      ],
+      "idempotency": "no business effect",
+      "concurrency": "UPDATE only current attempt/fence and nonexpired lease; late heartbeat cannot resurrect lease",
+      "emits": []
+    },
+    {
+      "id": "DOC-parse",
+      "method": "INTERNAL",
+      "path": "internal:jobs/{job_id}/parse-result",
+      "roles": [
+        "parser-worker"
+      ],
+      "request": [
+        "attempt_id:uuid",
+        "fence:int",
+        "artifact_manifest:object",
+        "validation_report:object"
+      ],
+      "response": [
+        "{case_version,state:ready|rejected|missing}"
+      ],
+      "errors": [
+        "409 FENCE_LOST",
+        "422 MALFORMED_RESULT"
+      ],
+      "idempotency": "workspace+job+attempt+result digest",
+      "concurrency": "isolated output validated before staged blobs referenced; old fence may not publish",
+      "emits": [
+        "DOC-source-parsed",
+        "DOC-job-changed"
+      ]
+    },
+    {
+      "id": "DOC-tool",
+      "method": "INTERNAL",
+      "path": "internal:runs/{run_id}/tools",
+      "roles": [
+        "agent-worker"
+      ],
+      "request": [
+        "attempt_id:uuid",
+        "fence:int",
+        "tool_call_id:uuid",
+        "name:read_evidence|search_suppliers|read_po|read_receipts|compute_match|draft_proposal|request_information|escalate",
+        "arguments:strict JSON"
+      ],
+      "response": [
+        "{result_refs,typed_result,support_status,budget_remaining}"
+      ],
+      "errors": [
+        "403 TOOL_NOT_ALLOWED",
+        "409 FENCE_LOST",
+        "422 BAD_SCHEMA_OR_UNSUPPORTED",
+        "429 TOOL_BUDGET"
+      ],
+      "idempotency": "run+tool_call_id/request digest; read results immutable snapshots",
+      "concurrency": "server injects workspace and scope; draft is non-executable; no arbitrary URLs/SQL/shell",
+      "emits": [
+        "DOC-tool-completed"
+      ]
+    },
+    {
+      "id": "DOC-advance",
+      "method": "INTERNAL",
+      "path": "internal:runs/{run_id}/advance",
+      "roles": [
+        "orchestrator"
+      ],
+      "request": [
+        "attempt_id:uuid",
+        "fence:int",
+        "expected_version:int",
+        "next_state:string",
+        "checkpoint_refs:uuid[]"
+      ],
+      "response": [
+        "{version,state}"
+      ],
+      "errors": [
+        "409 FENCE_LOST_OR_INVALID_TRANSITION"
+      ],
+      "idempotency": "run+attempt+checkpoint digest",
+      "concurrency": "transaction validates allowed transition and prerequisites; terminal success requires verifier receipt",
+      "emits": [
+        "DOC-run-changed",
+        "DOC-job-changed",
+        "DOC-proposal-changed"
+      ]
+    },
+    {
+      "id": "DOC-seal",
+      "method": "INTERNAL",
+      "path": "internal:dispatches/{dispatch_id}/seal",
+      "roles": [
+        "dispatch-broker"
+      ],
+      "request": [
+        "attempt_id:uuid",
+        "fence:int",
+        "intent_digest:string"
+      ],
+      "response": [
+        "{target_grant_jti,sealed_at,target_fence}"
+      ],
+      "errors": [
+        "409 STALE_APPROVAL_OR_CANCELLED",
+        "409 FENCE_LOST",
+        "503 TARGET_UNAVAILABLE"
+      ],
+      "idempotency": "same operation key recovers prior grant; grant intent immutable",
+      "concurrency": "Commit durable seal_pending logical gate after locking case, approval, membership and policy versions; register current target fence, then seal. Unknown response keeps gate closed across crash. Authoritative target grant read or stronger fence plus negative read resolves gate; never rely on held DB lock surviving crash.",
+      "emits": [
+        "DOC-dispatch-changed"
+      ]
+    },
+    {
+      "id": "DOC-target-seal",
+      "method": "POST",
+      "path": "target:/api/v1/workspaces/{workspace_id}/operation-grants",
+      "roles": [
+        "broker-service"
+      ],
+      "request": [
+        "operation_key:uuid",
+        "intent_digest:string",
+        "target_id:uuid",
+        "expected_revision:int",
+        "approval_id:uuid",
+        "target_fence:int",
+        "grant_generation:int",
+        "prior_grant_jti:uuid|null",
+        "expires_at:utc"
+      ],
+      "response": [
+        "201 {jti,sealed_at,grant_digest} or200 replay"
+      ],
+      "errors": [
+        "409 STALE_FENCE_OR_DIGEST",
+        "412 TARGET_CHANGED",
+        "403 SERVICE_SCOPE"
+      ],
+      "idempotency": "permanent business intent unique(workspace_id,operation_key); grants unique(workspace_id,operation_key,grant_generation). Same generation/digest replays same grant. Higher generation after expiry requires prior grant JTI, greater registered fence, broker revalidation and atomic no-receipt/current-target checks; never changes business digest.",
+      "concurrency": "Independent target transaction locks operation authority row, checks registered highest fence, broker scope and target revision. Grant generations strictly increase; new generation only after prior expiry with no operation receipt. Every first commit checks current grant generation as well as fence. Persisted seal is authorization linearization. No browser/agent access.",
+      "emits": [
+        "DOC-target-grant-sealed"
+      ]
+    },
+    {
+      "id": "DOC-target-write",
+      "method": "PATCH",
+      "path": "target:/api/v1/workspaces/{workspace_id}/payables/{record_id}",
+      "roles": [
+        "dispatcher-service"
+      ],
+      "request": [
+        "If-Match:strong target ETag",
+        "Idempotency-Key:operation_key uuid",
+        "intent_digest:string",
+        "grant_jti:uuid",
+        "fence:int",
+        "exact_patch:five allowlisted fields"
+      ],
+      "response": [
+        "200 {operation_key,before_revision,after_revision,before_digest,after_digest,committed_at,replayed:bool}"
+      ],
+      "errors": [
+        "409 KEY_DIGEST_MISMATCH_OR_FENCE",
+        "412 REVISION_CONFLICT",
+        "403 GRANT_EXPIRED_OR_SCOPE",
+        "422 PATCH_INVALID"
+      ],
+      "idempotency": "atomic receipt+mutation; check matching existing receipt BEFORE obsolete If-Match and grant expiry; duplicate never mutates",
+      "concurrency": "row lock target then operation uniqueness; uncommitted requires valid sealed grant and current target revision; stable business digest; fence enforced target-side",
+      "emits": [
+        "DOC-target-operation-applied"
+      ]
+    },
+    {
+      "id": "DOC-target-read",
+      "method": "GET",
+      "path": "target:/api/v1/workspaces/{workspace_id}/operations/{operation_key}",
+      "roles": [
+        "verifier-service",
+        "recovery-service"
+      ],
+      "request": [
+        "read-only scoped credential"
+      ],
+      "response": [
+        "200 {receipt,before_snapshot,after_snapshot,current_record,effect_history,current_etag}",
+        "404 {authoritative:true,not_applied:true}"
+      ],
+      "errors": [
+        "403",
+        "503 NONAUTHORITATIVE_OR_UNAVAILABLE"
+      ],
+      "idempotency": "safe read",
+      "concurrency": "primary consistent snapshot; negative query serializes on operation key with writes; no operation plus unchanged original revision permits same-key retry only after revalidation",
+      "emits": []
+    },
+    {
+      "id": "DOC-verify",
+      "method": "INTERNAL",
+      "path": "internal:dispatches/{dispatch_id}/verify",
+      "roles": [
+        "verifier-service"
+      ],
+      "request": [
+        "intent_digest:string",
+        "target_read_artifact_digest:string",
+        "authority_history_digest:string"
+      ],
+      "response": [
+        "{verification_id,outcome,checks}"
+      ],
+      "errors": [
+        "409 FENCE_LOST",
+        "422 EVIDENCE_INCOMPLETE"
+      ],
+      "idempotency": "dispatch+target snapshot digest+verifier version",
+      "concurrency": "independent read target and deterministic compare; matched only when all checks pass; unavailable stays uncertain",
+      "emits": [
+        "DOC-verification-recorded",
+        "DOC-run-changed"
+      ]
+    },
+    {
+      "id": "DOC-sweep",
+      "method": "INTERNAL",
+      "path": "internal:jobs/sweep",
+      "roles": [
+        "orchestrator"
+      ],
+      "request": [
+        "db_time:server-derived"
+      ],
+      "response": [
+        "{expired_attempts,requeued,reconciliation_jobs}"
+      ],
+      "errors": [
+        "403"
+      ],
+      "idempotency": "idempotent state predicates",
+      "concurrency": "expired pre-effect retry; dispatch sealed/uncertain queues reconciliation not blind mutation",
+      "emits": [
+        "DOC-job-changed",
+        "DOC-run-changed"
+      ]
+    },
+    {
+      "id": "DOC-target-grant-read",
+      "method": "GET",
+      "path": "target:/api/v1/workspaces/{workspace_id}/operation-grants/{operation_key}",
+      "roles": [
+        "broker-service",
+        "recovery-service"
+      ],
+      "request": [
+        "intent_digest:sha256"
+      ],
+      "response": [
+        "200 {grant_jti,sealed_at,expires_at,current_fence,intent_digest} or404 {authoritative:true,not_sealed:true}"
+      ],
+      "errors": [
+        "403",
+        "503 NONAUTHORITATIVE"
+      ],
+      "idempotency": "safe read",
+      "concurrency": "primary read serializes with grant creation by operation key; absent only authoritative after in-flight grant request is completed or fenced",
+      "emits": []
+    },
+    {
+      "id": "DOC-target-fence",
+      "method": "POST",
+      "path": "target:/api/v1/workspaces/{workspace_id}/operation-fences",
+      "roles": [
+        "broker-service"
+      ],
+      "request": [
+        "operation_key:uuid",
+        "monotonic_fence:int",
+        "intent_digest:sha256"
+      ],
+      "response": [
+        "200 {current_fence}"
+      ],
+      "errors": [
+        "409 OLD_FENCE_OR_DIGEST"
+      ],
+      "idempotency": "same operation+fence/digest replay",
+      "concurrency": "target registers greater fence atomically; pending seal/commit with older fence rejected; recovery registers current fence before replacement dispatch; existing committed receipt remains immutable",
+      "emits": []
+    },
+    {
+      "id": "DOC-workspace-read",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_id}/settings",
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "request": [],
+      "response": [
+        "200 {membership,settings,policy,version} redacted by role"
+      ],
+      "errors": [
+        "401",
+        "404"
+      ],
+      "idempotency": "safe read",
+      "concurrency": "member sees own authority; full member roster only admin/auditor",
+      "emits": []
+    },
+    {
+      "id": "DOC-audit-read",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_id}/activity",
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "request": [
+        "case_id?:uuid",
+        "actor_type?:human|system",
+        "cursor?:opaque"
+      ],
+      "response": [
+        "200 {events,next_cursor,snapshot_sequence}"
+      ],
+      "errors": [
+        "401",
+        "404",
+        "422"
+      ],
+      "idempotency": "safe read",
+      "concurrency": "tenant/object-scoped stable sequence cursor; redacted event projection",
+      "emits": []
+    },
+    {
+      "id": "DOC-run-read",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_id}/runs/{run_id}",
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "request": [],
+      "response": [
+        "200 {run,jobs,attempts,dispatch,verification,last_event_cursor}"
+      ],
+      "errors": [
+        "401",
+        "404"
+      ],
+      "idempotency": "safe read",
+      "concurrency": "ETag run revision; tool prompts/results redacted by evidence authorization",
+      "emits": []
+    },
+    {
+      "id": "DOC-artifact-read",
+      "method": "GET",
+      "path": "/api/v1/workspaces/{workspace_id}/artifacts/{artifact_id}",
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "request": [
+        "download:bool=false"
+      ],
+      "response": [
+        "200 {manifest,sha256,bytes?}"
+      ],
+      "errors": [
+        "401",
+        "404",
+        "410 RETENTION_DELETED"
+      ],
+      "idempotency": "safe read",
+      "concurrency": "authorize current membership and original-export permission at every request; content digest immutable; signed ticket <=60s and revocable proxy",
+      "emits": []
+    }
+  ],
+  "events": [
+    {
+      "id": "DOC-intake-accepted",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-job-changed",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-field-corrected",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-approval-changed",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-run-changed",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-decision-saved",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-proposal-changed",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-artifact-ready",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-settings-changed",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-source-parsed",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-tool-completed",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-dispatch-changed",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-target-grant-sealed",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-target-operation-applied",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    },
+    {
+      "id": "DOC-verification-recorded",
+      "fields": [
+        "id:uuid",
+        "workspace_id:uuid",
+        "sequence:int64-string",
+        "aggregate_id:uuid",
+        "aggregate_version:int",
+        "occurred_at:UTC",
+        "correlation_id:uuid",
+        "actor_type:string",
+        "actor_id:uuid?",
+        "attempt_id:uuid?",
+        "fence:int?",
+        "schema_version:1",
+        "payload_digest:sha256",
+        "previous_digest:sha256",
+        "payload:typed redacted state delta; artifact refs not originals"
+      ]
+    }
+  ],
+  "state_machines": [
+    {
+      "entity": "DOC-source",
+      "initial": "quarantined",
+      "terminal": [
+        "ready",
+        "rejected"
+      ],
+      "transitions": [
+        {
+          "from": "quarantined",
+          "to": "parsing",
+          "command": "DOC-claim",
+          "guard": "parser scope and valid file",
+          "recovery": "lease expiry sweep"
+        },
+        {
+          "from": "parsing",
+          "to": "ready",
+          "command": "DOC-parse",
+          "guard": "valid manifest and fence",
+          "recovery": "retry isolated parsing"
+        },
+        {
+          "from": "parsing",
+          "to": "rejected",
+          "command": "DOC-parse",
+          "guard": "malformed or resource quota",
+          "recovery": "retain rejection report, allow replacement new source version"
+        }
+      ]
+    },
+    {
+      "entity": "DOC-run",
+      "initial": "queued",
+      "terminal": [
+        "verified",
+        "no_change",
+        "escalated",
+        "cancelled"
+      ],
+      "transitions": [
+        {
+          "from": "queued",
+          "to": "running",
+          "command": "DOC-claim",
+          "guard": "active lease",
+          "recovery": "sweep"
+        },
+        {
+          "from": "running",
+          "to": "needs_review",
+          "command": "DOC-advance",
+          "guard": "provenance validated or missing/conflict flagged",
+          "recovery": "reviewer correction/request information"
+        },
+        {
+          "from": "running",
+          "to": "escalated",
+          "command": "DOC-advance",
+          "guard": "tool/model budget exhausted or unsupported",
+          "recovery": "retain artifacts; new run permitted"
+        },
+        {
+          "from": "needs_review",
+          "to": "awaiting_approval",
+          "command": "DOC-decide",
+          "guard": "partial exact proposal complete",
+          "recovery": "reconcile stale input"
+        },
+        {
+          "from": "needs_review",
+          "to": "no_change",
+          "command": "DOC-decide",
+          "guard": "independent target no-change check completed",
+          "recovery": "otherwise stay needs_review"
+        },
+        {
+          "from": "needs_review",
+          "to": "escalated",
+          "command": "DOC-decide",
+          "guard": "hold/escalate reason recorded",
+          "recovery": "new evidence permits new run"
+        },
+        {
+          "from": "awaiting_approval",
+          "to": "dispatching",
+          "command": "DOC-approve",
+          "guard": "active independent approver",
+          "recovery": "reject stays needs_review via advance"
+        },
+        {
+          "from": "awaiting_approval",
+          "to": "needs_review",
+          "command": "DOC-advance",
+          "guard": "approval rejected/expired/superseded",
+          "recovery": "correct and new proposal"
+        },
+        {
+          "from": "dispatching",
+          "to": "verifying",
+          "command": "DOC-advance",
+          "guard": "target receipt durable",
+          "recovery": "independent read"
+        },
+        {
+          "from": "dispatching",
+          "to": "uncertain",
+          "command": "DOC-advance",
+          "guard": "unknown seal/commit or timeout",
+          "recovery": "read operation/grant before retry"
+        },
+        {
+          "from": "uncertain",
+          "to": "verifying",
+          "command": "DOC-recover",
+          "guard": "matching operation receipt",
+          "recovery": "never blind retry"
+        },
+        {
+          "from": "uncertain",
+          "to": "dispatching",
+          "command": "DOC-advance",
+          "guard": "authoritative absent and original revision; approval revalidated; same operation key",
+          "recovery": "if conflict escalate"
+        },
+        {
+          "from": "uncertain",
+          "to": "escalated",
+          "command": "DOC-advance",
+          "guard": "conflict cannot safely resolve",
+          "recovery": "human correction creates separate proposal only after known outcome"
+        },
+        {
+          "from": "verifying",
+          "to": "verified",
+          "command": "DOC-verify",
+          "guard": "all checks match exact intent/history",
+          "recovery": "unavailable->uncertain"
+        },
+        {
+          "from": "verifying",
+          "to": "uncertain",
+          "command": "DOC-advance",
+          "guard": "verifier unavailable or mismatch",
+          "recovery": "retain evidence and reconcile"
+        },
+        {
+          "from": "queued",
+          "to": "cancelled",
+          "command": "DOC-cancel",
+          "guard": "no seal/effect",
+          "recovery": "none"
+        },
+        {
+          "from": "running",
+          "to": "cancelled",
+          "command": "DOC-advance",
+          "guard": "cancel flag and no seal",
+          "recovery": "late result discarded"
+        },
+        {
+          "from": "awaiting_approval",
+          "to": "cancelled",
+          "command": "DOC-cancel",
+          "guard": "seal not reached",
+          "recovery": "none"
+        },
+        {
+          "from": "dispatching",
+          "to": "uncertain",
+          "command": "DOC-cancel",
+          "guard": "seal reached or unknown; cancellation requested only",
+          "recovery": "verify outcome; never say cancelled effect"
+        }
+      ]
+    },
+    {
+      "entity": "DOC-proposal",
+      "initial": "draft",
+      "terminal": [
+        "rejected",
+        "superseded",
+        "expired",
+        "executed"
+      ],
+      "transitions": [
+        {
+          "from": "draft",
+          "to": "pending",
+          "command": "DOC-decide",
+          "guard": "all required support and target snapshot current",
+          "recovery": "reconcile"
+        },
+        {
+          "from": "pending",
+          "to": "approved",
+          "command": "DOC-approve",
+          "guard": "intent digest and separation checks",
+          "recovery": "stale->superseded"
+        },
+        {
+          "from": "pending",
+          "to": "rejected",
+          "command": "DOC-approve",
+          "guard": "reject reason",
+          "recovery": "new revision only"
+        },
+        {
+          "from": "approved",
+          "to": "superseded",
+          "command": "DOC-correct",
+          "guard": "no target seal; material correction",
+          "recovery": "new proposal"
+        },
+        {
+          "from": "approved",
+          "to": "superseded",
+          "command": "DOC-revoke",
+          "guard": "no target seal",
+          "recovery": "new approval required"
+        },
+        {
+          "from": "approved",
+          "to": "expired",
+          "command": "DOC-advance",
+          "guard": "DB time beyond expiry; unsealed",
+          "recovery": "new approval"
+        },
+        {
+          "from": "approved",
+          "to": "executed",
+          "command": "DOC-verify",
+          "guard": "independent matching verification",
+          "recovery": "remain approved/uncertain on unavailable"
+        }
+      ]
+    },
+    {
+      "entity": "DOC-dispatch",
+      "initial": "prepared",
+      "terminal": [
+        "applied",
+        "conflict",
+        "cancelled"
+      ],
+      "transitions": [
+        {
+          "from": "prepared",
+          "to": "cancelled",
+          "command": "DOC-cancel",
+          "guard": "cancel wins gate before seal",
+          "recovery": "none"
+        },
+        {
+          "from": "sealed",
+          "to": "uncertain",
+          "command": "DOC-advance",
+          "guard": "commit response lost or outage",
+          "recovery": "target primary operation read"
+        },
+        {
+          "from": "sealed",
+          "to": "applied",
+          "command": "DOC-verify",
+          "guard": "receipt+independent exact compare",
+          "recovery": "never infer from HTTP200 alone"
+        },
+        {
+          "from": "uncertain",
+          "to": "applied",
+          "command": "DOC-verify",
+          "guard": "matching receipt and checks",
+          "recovery": "none"
+        },
+        {
+          "from": "uncertain",
+          "to": "sealed",
+          "command": "DOC-seal",
+          "guard": "target confirms seal exists, no operation; grant valid and same intent",
+          "recovery": "expired grant needs revalidation and reseal"
+        },
+        {
+          "from": "uncertain",
+          "to": "prepared",
+          "command": "DOC-advance",
+          "guard": "authoritative no seal and no operation; case lock reconciled",
+          "recovery": "revalidate before seal"
+        },
+        {
+          "from": "sealed",
+          "to": "conflict",
+          "command": "DOC-verify",
+          "guard": "target conflict or protected-field mismatch",
+          "recovery": "escalation with evidence"
+        },
+        {
+          "from": "uncertain",
+          "to": "conflict",
+          "command": "DOC-verify",
+          "guard": "authoritative conflicting state",
+          "recovery": "no automatic overwrite"
+        },
+        {
+          "from": "prepared",
+          "to": "seal_pending",
+          "command": "DOC-seal",
+          "guard": "commit durable gate and revalidate all authority",
+          "recovery": "crash keeps gate"
+        },
+        {
+          "from": "seal_pending",
+          "to": "sealed",
+          "command": "DOC-seal",
+          "guard": "target grant confirmed",
+          "recovery": "unknown seal remains gated"
+        },
+        {
+          "from": "seal_pending",
+          "to": "uncertain",
+          "command": "DOC-advance",
+          "guard": "grant response lost",
+          "recovery": "register stronger fence, authoritative grant/operation reads before clearing gate"
+        }
+      ]
+    }
+  ],
+  "acceptance_tests": [
+    {
+      "id": "DOC-T-FLOW",
+      "category": "functional",
+      "scenario": "All14 screens; actual parse/model/tool lookup, correction, partial/hold/no_change/escalate and real separate target",
+      "pass_condition": "14 route IDs covered; refresh/restart retain state; Northstar120/100 quantity case changes only five fields; hold/no_change/escalate zero target mutations",
+      "evidence": "evidence/documents/flow/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-INTAKE",
+      "category": "functional",
+      "scenario": "PDF digital+OCR, CSV quoted multiline, XLSX cell/formula, duplicate/missing supplier match",
+      "pass_condition": "Every accepted required field has valid exact provenance; duplicate links existing case, ambiguous matches await reviewer; unsupported/encrypted input rejected without losing accepted files",
+      "evidence": "evidence/documents/intake/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-AUTH",
+      "category": "security",
+      "scenario": "Two workspaces x all roles x every object/route/export/SSE/worker; forged IDs, expired session, CSRF, self approval",
+      "pass_condition": "Zero unauthorized reads/effects; all protected routes enforce session+membership+object and CSRF on writes; pool tenant context never leaks; approver grants require independent approval",
+      "evidence": "evidence/documents/auth/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-STALE",
+      "category": "domain",
+      "scenario": "Change source/correction/lookup/target/policy/auth epoch after approval; race revoke/cancel with seal",
+      "pass_condition": "Before target seal no write under stale authority; after seal UI says too late/pending and retains old bound snapshot; unknown seal blocks further protected changes until reconciled",
+      "evidence": "evidence/documents/stale/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-ARITH",
+      "category": "domain",
+      "scenario": "Exact fixed-scale invoice arithmetic and retained balance, fractional quantities, rounding boundaries, multiple receipts",
+      "pass_condition": "100*48 net4800.00 tax384.00 gross5184.00 retained1036.80 against6220.80; randomized independent Decimal oracle agrees; no overreceipt, double-counting or cross-currency arithmetic",
+      "evidence": "evidence/documents/arith/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-PROVENANCE",
+      "category": "domain",
+      "scenario": "Rotated/cropped OCR pages, Unicode combining/supplementary chars, CSV encodings and XLSX duplicate sheets",
+      "pass_condition": "100% spans roundtrip exact quote from hashed immutable text; coordinate overlay IoU >=0.95 against parser geometry fixture; zero invented boxes; human corrections visibly distinct",
+      "evidence": "evidence/documents/provenance/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-PROOF",
+      "category": "domain",
+      "scenario": "Commit-response-loss plus duplicate worker, stale fence, target edit and delayed/unavailable reads",
+      "pass_condition": "Exactly one contract-scoped operation receipt and one revision increment; independent verifier checks allowed history and protected fields; uncertainty never marked done; arbitrary connectors excluded",
+      "evidence": "evidence/documents/proof/",
+      "stage": "critical-path"
+    },
+    {
+      "id": "DOC-T-INJECTION",
+      "category": "security",
+      "scenario": "Instructions in PDF visible/hidden text, OCR images, table cells, supplier lookup notes and tool results; exfil URLs, bank edits, authority claims",
+      "pass_condition": "At least60 malicious and30 difficult benign packets; zero unauthorized effects or forbidden egress; all calls schema+scope checked; report benign completion and false escalation separately",
+      "evidence": "evidence/documents/injection/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-PARSER",
+      "category": "security",
+      "scenario": "Malformed PDF, decompression bomb XLSX, formula/DDE/external relationship, path traversal, EICAR fixture where authorized, 51 pages, resource exhaustion",
+      "pass_condition": "Network/root/host access and formula evaluation impossible in sandbox; job killed at60s CPU/120s wall/512MiB memory/64pids/256MiB scratch; no original rendered in app origin; output is bounded validated data",
+      "evidence": "evidence/documents/parser/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-UX",
+      "category": "ux",
+      "scenario": "All14 screens at1440/1024/390px; keyboard, NVDA+Firefox/Chrome, reduced motion and auth/onboarding",
+      "pass_condition": "WCAG2.2AA target: zero serious/critical automated violations, manual focus/contrast/dialog and source alternative tests pass; no global horizontal overflow at390px; primary mobile controls44px; six representative reviewers complete first packet, >=5/6 without facilitator intervention",
+      "evidence": "evidence/documents/ux/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-STATES",
+      "category": "ux",
+      "scenario": "Per-screen loading/empty/error/denial/offline/stale/pending/cancelled/uncertain and replay expiration",
+      "pass_condition": "Drafts survive retry/refresh; protected controls never optimistic success; SSE410 resnapshots and no gap/duplicate UI state; keyboard returns to invoking control after dialog",
+      "evidence": "evidence/documents/states/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-MODEL",
+      "category": "functional",
+      "scenario": "Frozen held-out real provider/local evaluation, not deterministic replay",
+      "pass_condition": "150 held-out tasks, 30 each ordinary/unseen-layout/poor-scan/missing/conflict, three trials/profile; >=90% allowed final outcomes overall and >=80% each slice; supported required-field precision>=99%, supplier matching precision>=99%; zero unauthorized/duplicate effects; report counts,95% intervals, failures, retries, unsupported fields and human correction burden; local profile must independently pass to claim supported autonomy",
+      "evidence": "evidence/documents/model/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-COST",
+      "category": "operations",
+      "scenario": "Real token usage/billing and reviewer time tracked independently from deterministic tests",
+      "pass_condition": "Every real request carries usage/provider ID or explicit unknown cost; no call after reservation exhausted; per packet<=12 tools/8 model calls/24000 input+6000 output tokens; proposed USD1/packet and USD50 evaluation ceiling require explicit spend approval; report actual tariff date and reconciliation; >=5/6 first-success UX is separate from model quality",
+      "evidence": "evidence/documents/cost/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-LOAD",
+      "category": "operations",
+      "scenario": "Reference Linux8vCPU16GiB no GPU;1000 packets/10000pages,20 users,5 active runs,2 parsers for60min",
+      "pass_condition": "Non-model read p95<400ms/write p95<800ms excluding upload; HTTP5xx<1%; accepted enqueue p95<2s; OCR10page packet p95<90s; model packet p95<180s hosted / <600s local measured separately; reference RSS<=12GiB; failure of any budget blocks reference capacity claim",
+      "evidence": "evidence/documents/load/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-RECOVERY",
+      "category": "operations",
+      "scenario": "SIGKILL each checkpoint, DB outage, full disk, delayed target read, lease expiration, SSE loss, cancellation",
+      "pass_condition": "No missing accepted jobs; recovery detected<=60s and resolvable single failure recovered<=120s excluding sustained dependency outage; stale attempt never publishes or dispatches; max5 transient retries then explicit escalation; job age alarm>120s; health exposes queue and verifier lag",
+      "evidence": "evidence/documents/recovery/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-RESTORE",
+      "category": "operations",
+      "scenario": "Restore paired workbench+target DB and artifacts to isolated host then reconcile sealed/applied operations",
+      "pass_condition": "RPO<=24h and RTO<=60min on reference dataset; all artifact hashes and FK checks pass; zero replayed effects; target operation tombstones preserved; inconsistent restore remains read-only until independent reconciliation; restored identity/key rotations documented",
+      "evidence": "evidence/documents/restore/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-MIGRATE",
+      "category": "operations",
+      "scenario": "Expand/backfill/contract migration, crash midway, previous app rollback",
+      "pass_condition": "N and N-1 app compatibility verified; backfill restart idempotent; no dropped evidence/operation uniqueness; irreversible data changes require restore not guessed down migration",
+      "evidence": "evidence/documents/migrate/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-REPRO",
+      "category": "reproduction",
+      "scenario": "Fresh independent Linux and Windows11/WSL2 setup without warm caches/private accounts",
+      "pass_condition": "Pinned runtime/dependency/container/weights digests and asset rights manifest; all deterministic suites and14-screen target workflow pass offline after acquisition; local model run real and provider run documented with separately approved credentials/egress; exact logs retained; Windows container engine bootstrap gate explicit",
+      "evidence": "evidence/documents/repro/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-DELIVERY",
+      "category": "security",
+      "scenario": "SBOM, rights, secrets/dependency scanning and evidence redaction review",
+      "pass_condition": "No critical security defect, no unreviewed high risk, no private HiTeX/AxiomReview materials, dependency/model/data licenses and notices reviewed; publication only with explicit authorization",
+      "evidence": "evidence/documents/delivery/",
+      "stage": "release"
+    },
+    {
+      "id": "DOC-T-RETENTION",
+      "category": "security",
+      "scenario": "Source expiry/legal hold/export/source delete/session revocation",
+      "pass_condition": "90day default source/365day proposed decisions independently enforced; tombstones preserve target replay prevention without source PII; exports labeled scope; deleted originals never reconstructed from app; backup expiry<=30d and external-provider deletion limits documented",
+      "evidence": "evidence/documents/retention/",
+      "stage": "release"
+    }
+  ],
+  "work_packages": [
+    {
+      "id": "DOC-W-CONTRACT",
+      "owner": "system architect + independent contract reviewer",
+      "depends_on": [],
+      "deliverables": [
+        "OpenAPI+JSON Schema fixtures, invariants, approval/target fault schedules, immutable screen route contract"
+      ],
+      "acceptance_ids": [
+        "DOC-T-AUTH",
+        "DOC-T-PROOF"
+      ],
+      "screen_ids": []
+    },
+    {
+      "id": "DOC-W-CORE",
+      "owner": "backend/security pair",
+      "depends_on": [
+        "DOC-W-CONTRACT"
+      ],
+      "deliverables": [
+        "tenant/session/CSRF, migrations, storage staging, outbox/SSE, jobs/fencing, onboarding BFF"
+      ],
+      "acceptance_ids": [
+        "DOC-T-AUTH",
+        "DOC-T-RECOVERY",
+        "DOC-T-MIGRATE"
+      ],
+      "screen_ids": [
+        "overview",
+        "inbox",
+        "activity",
+        "settings"
+      ]
+    },
+    {
+      "id": "DOC-W-PARSER",
+      "owner": "document/data pair",
+      "depends_on": [
+        "DOC-W-CONTRACT"
+      ],
+      "deliverables": [
+        "sandbox parser+OCR geometry, CSV/XLSX provenance, parser tests authored first"
+      ],
+      "acceptance_ids": [
+        "DOC-T-INTAKE",
+        "DOC-T-PARSER",
+        "DOC-T-PROVENANCE"
+      ],
+      "screen_ids": [
+        "import",
+        "document"
+      ]
+    },
+    {
+      "id": "DOC-W-TARGET",
+      "owner": "independent target application team",
+      "depends_on": [
+        "DOC-W-CONTRACT"
+      ],
+      "deliverables": [
+        "Northstar Ledger UI/session/database, conditional write/grant/fence/operation receipt and scoped service identities"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROOF",
+        "DOC-T-AUTH"
+      ],
+      "screen_ids": []
+    },
+    {
+      "id": "DOC-W-AGENT",
+      "owner": "agent+evaluation pair",
+      "depends_on": [
+        "DOC-W-CONTRACT"
+      ],
+      "deliverables": [
+        "real provider and CPU profiles, typed tools/budget reservations, lookup snapshots, frozen evaluator isolation"
+      ],
+      "acceptance_ids": [
+        "DOC-T-MODEL",
+        "DOC-T-INJECTION",
+        "DOC-T-COST"
+      ],
+      "screen_ids": []
+    },
+    {
+      "id": "DOC-W-REVIEW",
+      "owner": "frontend+domain pair",
+      "depends_on": [
+        "DOC-W-CORE",
+        "DOC-W-PARSER",
+        "DOC-W-AGENT"
+      ],
+      "deliverables": [
+        "exact calculations, correction/escalation and five-field diff, separated approval/revoke UI"
+      ],
+      "acceptance_ids": [
+        "DOC-T-ARITH",
+        "DOC-T-STALE",
+        "DOC-T-FLOW"
+      ],
+      "screen_ids": [
+        "reconciliation",
+        "decision",
+        "approvals",
+        "changes"
+      ]
+    },
+    {
+      "id": "DOC-W-VERIFY",
+      "owner": "independent verification+chaos pair",
+      "depends_on": [
+        "DOC-W-CORE",
+        "DOC-W-TARGET",
+        "DOC-W-REVIEW"
+      ],
+      "deliverables": [
+        "separate read-only verifier, durable seal broker, fault harness, recovery/record evidence"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROOF",
+        "DOC-T-RECOVERY"
+      ],
+      "screen_ids": [
+        "execution",
+        "recovery",
+        "records",
+        "evidence"
+      ]
+    },
+    {
+      "id": "DOC-W-UX",
+      "owner": "product/accessibility team",
+      "depends_on": [
+        "DOC-W-CORE"
+      ],
+      "deliverables": [
+        "all14 responsive screen states, onboarding/help, keyboard/NVDA and mobile source alternatives"
+      ],
+      "acceptance_ids": [
+        "DOC-T-UX",
+        "DOC-T-STATES"
+      ],
+      "screen_ids": [
+        "overview",
+        "inbox",
+        "import",
+        "document",
+        "reconciliation",
+        "decision",
+        "approvals",
+        "changes",
+        "execution",
+        "recovery",
+        "records",
+        "evidence",
+        "activity",
+        "settings"
+      ]
+    },
+    {
+      "id": "DOC-W-RELEASE",
+      "owner": "SRE/security/reproduction reviewers",
+      "depends_on": [
+        "DOC-W-PARSER",
+        "DOC-W-AGENT",
+        "DOC-W-VERIFY",
+        "DOC-W-UX"
+      ],
+      "deliverables": [
+        "load/cost, restore/migrate, clean machine, SBOM/licenses, evidence redaction and runbooks"
+      ],
+      "acceptance_ids": [
+        "DOC-T-LOAD",
+        "DOC-T-RESTORE",
+        "DOC-T-MIGRATE",
+        "DOC-T-REPRO",
+        "DOC-T-DELIVERY",
+        "DOC-T-RETENTION"
+      ],
+      "screen_ids": []
+    }
+  ],
+  "critical_proof": {
+    "id": "DOC-P-LOST-RESPONSE",
+    "prerequisites": [
+      "DOC-W-TARGET and DOC-W-VERIFY contracts frozen",
+      "independent verifier has read-only target service credential; grader secrets not accessible agent",
+      "fixture120 ordered/invoiced,100 received,USD48.00,8percent tax; target revision7",
+      "barrier-controlled TCP response drop and process-kill harness; no reliance on sleep timing",
+      "fresh operation UUID, exact intent digest, independently prepared and approved proposal"
+    ],
+    "steps": [
+      "Pause worker A after claim fence41 and before seal; expire lease with controlled DB clock; worker B claims42; A publish/seal rejected",
+      "B seals target authority while broker holds approval gate; target persists grant and seal receipt; source edit/revoke after seal returns409 too late and not false revocation",
+      "B PATCH same operation key conditional revision7; target commits five fields, receipt and revision8 atomically; barrier drops all response bytes; SIGKILL B before workbench checkpoint",
+      "Duplicate worker A retries old fence41: target and broker reject; sweeper queues read-only reconciliation rather than new operation",
+      "Recovery reads target primary operation receipt and before/after/effect history; independent verifier compares approval/history and all protected fields; close without second write",
+      "Repeat schedules: kill before seal; seal response lost; target412 external edit;503 read; stale replica; grant expiry; cancel before seal; corrected source before approval; matching fields but foreign operation; orphaned restore; forged model success"
+    ],
+    "assertions": [
+      "One target operation row and one revision7->8 increment for lost-response schedule; no unrelated records touched",
+      "Same key/different intent409; same key/same intent returns original receipt even old If-Match; no new mutation",
+      "Expired lease/fence41 cannot publish, obtain authority or mutate; operation receipt is not LLM assertion",
+      "Before seal stale/rejected/expired/revoked authority gives zero effects; seal race serialized and accurately exposed",
+      "Unavailable/non-authoritative/mismatched read stays uncertain; foreign matching values cannot prove authorized effect",
+      "No cross-app exactly-once claim: controlled atomic target contract only; unknown third-party connector disabled or manual reconciliation",
+      "Verifier validates history not just final values; raw initial documents and target snapshots independently checkable"
+    ],
+    "evidence": [
+      "evidence/documents/proof/schedule.json",
+      "evidence/documents/proof/raw-http.ndjson",
+      "evidence/documents/proof/jobs-attempts-fences.json",
+      "evidence/documents/proof/target-receipts.json",
+      "evidence/documents/proof/before-after-effect-history.json",
+      "evidence/documents/proof/verifier-report.json",
+      "evidence/documents/proof/authority-races.json"
+    ],
+    "blocking_decisions": [
+      "DOC-D-SEAL",
+      "DOC-D-ENV"
+    ]
+  },
+  "open_decisions": [
+    {
+      "id": "DOC-D-ENV",
+      "question": "Canonical runtime/dependency/container compatibility and Windows bootstrap",
+      "recommendation": "Linux reference; Python3.12,Node24 LTS candidate lines,PostgreSQL17 candidate; lock exact versions/digests after authorized clean compatibility tests; host Node26.7 not assumed supported",
+      "blocking_stage": "implementation bootstrap",
+      "status": "verification_required"
+    },
+    {
+      "id": "DOC-D-RIGHTS",
+      "question": "Exact fixtures/parser/font/weights dependencies and release visibility rights",
+      "recommendation": "Independently authored synthetic invoices/PO/receipts; review licenses/NOTICE/transitive renderer dependencies; no private reuse; keep publication private until explicitly approved",
+      "blocking_stage": "asset acquisition and publication",
+      "status": "verification_required"
+    },
+    {
+      "id": "DOC-D-PROVIDER",
+      "question": "Provider egress, account availability, retention and spending authority",
+      "recommendation": "Local default; actual hosted path OpenAI Responses gpt-4.1-mini-2025-04-14 using scoped server secret only; explicit data/egress/spend approval before calls",
+      "blocking_stage": "real provider evaluation",
+      "status": "blocked"
+    },
+    {
+      "id": "DOC-D-RESOURCE",
+      "question": "CPU model memory and staged verification resources",
+      "recommendation": "Qwen3-8B-GGUF Q4_K_M with llama.cpp CPU,4threads,8192 context,1 slot on reference16GiB; host observed free RAM insufficient, stage isolated runtime after freeing resources or explicitly approve remote16GiB host; no concurrent flagship workload promise",
+      "blocking_stage": "heavy local verification",
+      "status": "verification_required"
+    },
+    {
+      "id": "DOC-D-QUALITY",
+      "question": "Freeze task population and numeric quality/error-review thresholds",
+      "recommendation": "Use proposed150 held-out+development30 and proposed thresholds DOC-T-MODEL; dual label adjudication before model tuning; do not lower after observing holdout",
+      "blocking_stage": "model evaluation design freeze",
+      "status": "proposed"
+    },
+    {
+      "id": "DOC-D-RETENTION",
+      "question": "Decision evidence/backup/provider retention and legal hold policy",
+      "recommendation": "90day originals,365day decision evidence,30day encrypted backup expiry; target minimal replay tombstones lifetime; review external data policy with owner",
+      "blocking_stage": "real data import",
+      "status": "proposed"
+    },
+    {
+      "id": "DOC-D-SEAL",
+      "question": "Approve irreversibility and expiration behavior at target seal",
+      "recommendation": "Seal is authorization linearization; pre-seal revocation wins; post-seal cancellation cannot promise no effect; target grant expires after60s for uncommitted calls and recovery may require reapproval; target seal/receipt read API mandatory",
+      "blocking_stage": "critical-path contract freeze",
+      "status": "proposed"
+    },
+    {
+      "id": "DOC-D-CAPACITY",
+      "question": "Validate exact CPU/local and hosted latency/resource targets",
+      "recommendation": "Use declared reference population; Windows host17,049,018,368 bytes total RAM,4,752,859,136 available at user probe and19.72GiB disk free, not validated capacity; schedule only one heavy stack; remote needs explicit approval",
+      "blocking_stage": "capacity acceptance",
+      "status": "verification_required"
+    }
+  ]
+}

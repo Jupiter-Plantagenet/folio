@@ -1,0 +1,651 @@
+{
+  "version": "0.2.0-local.1",
+  "screens": [
+    {
+      "id": "overview",
+      "reads": [
+        "DOC-case",
+        "DOC-run",
+        "DOC-job"
+      ],
+      "commands": [
+        "DOC-read",
+        "DOC-start"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "only current server counts; no seeded completion counts"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "no cases: onboarding; unavailable counts retain timestamp"
+      ],
+      "evidence": [
+        "queue snapshot",
+        "job age"
+      ],
+      "acceptance_ids": [
+        "DOC-T-FLOW",
+        "DOC-T-LOAD",
+        "DOC-T-UX"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "inbox",
+      "reads": [
+        "DOC-case",
+        "DOC-source",
+        "DOC-decision"
+      ],
+      "commands": [
+        "DOC-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "allowlisted search; confirmed vs candidate duplicates separated"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "no results clear filters; missing evidence remains open; deleted original tombstone"
+      ],
+      "evidence": [
+        "query+snapshot cursor",
+        "duplicate resolution history"
+      ],
+      "acceptance_ids": [
+        "DOC-T-INTAKE",
+        "DOC-T-STATES"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "import",
+      "reads": [
+        "DOC-source",
+        "DOC-case",
+        "DOC-job"
+      ],
+      "commands": [
+        "DOC-intake",
+        "DOC-source-read"
+      ],
+      "roles": [
+        "reviewer"
+      ],
+      "validation": [
+        "20MiB/file; PDF/CSV/XLSX; hash/MIME/signature and archive quotas"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "quarantine/upload progress; duplicate-link dialog; malformed rejection; incomplete packet retained"
+      ],
+      "evidence": [
+        "original digest",
+        "parser report",
+        "duplicate identity match"
+      ],
+      "acceptance_ids": [
+        "DOC-T-INTAKE",
+        "DOC-T-PARSER"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "document",
+      "reads": [
+        "DOC-source",
+        "DOC-field",
+        "DOC-provenance",
+        "DOC-approval"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-source-read",
+        "DOC-correct",
+        "DOC-start"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "correction requires reason/evidence and current case version"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "OCR pending; conflicting text; no-source alternate text; stale correction merge"
+      ],
+      "evidence": [
+        "old/new field revisions",
+        "exact spans and geometry"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROVENANCE",
+        "DOC-T-STALE",
+        "DOC-T-UX"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "reconciliation",
+      "reads": [
+        "DOC-field",
+        "DOC-provenance",
+        "DOC-decision",
+        "DOC-target-record"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-start",
+        "DOC-source-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "currency/unit consistency; receipt allocation; lookup freshness"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "missing PO/receipt request; conflicting supplier escalate; computed checks pending"
+      ],
+      "evidence": [
+        "formula version and inputs",
+        "target lookup snapshots"
+      ],
+      "acceptance_ids": [
+        "DOC-T-ARITH",
+        "DOC-T-MODEL"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "decision",
+      "reads": [
+        "DOC-decision",
+        "DOC-proposal",
+        "DOC-field"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-decide"
+      ],
+      "roles": [
+        "reviewer"
+      ],
+      "validation": [
+        "required reason; quantity proven and bounded; hold is no-write"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "invalid quantity retains draft; stale evidence blocks save; hold/no-change/escalate completion"
+      ],
+      "evidence": [
+        "reviewer reason",
+        "receipt basis",
+        "computed proposal"
+      ],
+      "acceptance_ids": [
+        "DOC-T-ARITH",
+        "DOC-T-FLOW",
+        "DOC-T-STALE"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "approvals",
+      "reads": [
+        "DOC-proposal",
+        "DOC-approval",
+        "DOC-membership"
+      ],
+      "commands": [
+        "DOC-read",
+        "DOC-detail",
+        "DOC-approve"
+      ],
+      "roles": [
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "not preparer; current intent/version/role"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "empty queue; denied self approval; expired/stale requires reconciliation"
+      ],
+      "evidence": [
+        "scoped queue",
+        "approval/rejection identity"
+      ],
+      "acceptance_ids": [
+        "DOC-T-AUTH",
+        "DOC-T-STALE"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "changes",
+      "reads": [
+        "DOC-proposal",
+        "DOC-approval",
+        "DOC-dispatch"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-approve",
+        "DOC-revoke"
+      ],
+      "roles": [
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "exact five-field diff; before revision; retained balance and digest confirmation"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "confirmation cancel preserves draft; rejection reason; stale invalidation; seal race too-late"
+      ],
+      "evidence": [
+        "bound intent",
+        "before snapshot",
+        "approval receipt"
+      ],
+      "acceptance_ids": [
+        "DOC-T-STALE",
+        "DOC-T-ARITH",
+        "DOC-T-AUTH"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "execution",
+      "reads": [
+        "DOC-run",
+        "DOC-job",
+        "DOC-dispatch",
+        "DOC-tool-call",
+        "DOC-verification"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-events",
+        "DOC-cancel",
+        "DOC-run-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "show actual durable checkpoints, no optimistic success"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "pending; lease lost; cancellation pending; ack lost uncertain; target unavailable"
+      ],
+      "evidence": [
+        "attempt and fence",
+        "actual tool receipts",
+        "dispatch checkpoints"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROOF",
+        "DOC-T-RECOVERY",
+        "DOC-T-COST"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "recovery",
+      "reads": [
+        "DOC-run",
+        "DOC-dispatch",
+        "DOC-target-operation",
+        "DOC-verification"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-recover",
+        "DOC-cancel",
+        "DOC-run-read"
+      ],
+      "roles": [
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "read-before-retry; no force-write; same operation key"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "matching verify; authoritative absent revalidate; unavailable/conflicting unresolved"
+      ],
+      "evidence": [
+        "fault schedule",
+        "target primary read",
+        "recovery decision"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROOF",
+        "DOC-T-RECOVERY"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "records",
+      "reads": [
+        "DOC-target-record",
+        "DOC-target-operation",
+        "DOC-verification"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-target-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "BFF proxies read under user membership; service credential never browser; verify exact scope"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "not checked never green; no-change independently checked; historical success/current drift distinct"
+      ],
+      "evidence": [
+        "independent before/after",
+        "protected field checks",
+        "operation receipt"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROOF",
+        "DOC-T-FLOW"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "evidence",
+      "reads": [
+        "DOC-artifact",
+        "DOC-provenance",
+        "DOC-verification",
+        "DOC-approval"
+      ],
+      "commands": [
+        "DOC-detail",
+        "DOC-export",
+        "DOC-artifact-read"
+      ],
+      "roles": [
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "versioned manifest; inclusion permission; checksum and redaction scope"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "export queued; originals expired; signed link expired; incomplete verification explicitly incomplete"
+      ],
+      "evidence": [
+        "bundle manifest",
+        "download access event",
+        "digest validation"
+      ],
+      "acceptance_ids": [
+        "DOC-T-PROVENANCE",
+        "DOC-T-RETENTION",
+        "DOC-T-DELIVERY"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "activity",
+      "reads": [
+        "DOC-event",
+        "DOC-artifact"
+      ],
+      "commands": [
+        "DOC-events",
+        "DOC-detail",
+        "DOC-export",
+        "DOC-audit-read"
+      ],
+      "roles": [
+        "viewer",
+        "reviewer",
+        "approver",
+        "admin",
+        "auditor"
+      ],
+      "validation": [
+        "server actor/system filters; redaction; cursor scoped"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "no events; replay expired resnapshot; offline last-known label; unauthorized case404"
+      ],
+      "evidence": [
+        "durable sequence",
+        "event hashes",
+        "external checkpoint refs"
+      ],
+      "acceptance_ids": [
+        "DOC-T-AUTH",
+        "DOC-T-STATES",
+        "DOC-T-RECOVERY"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    },
+    {
+      "id": "settings",
+      "reads": [
+        "DOC-membership",
+        "DOC-settings",
+        "DOC-event"
+      ],
+      "commands": [
+        "DOC-settings",
+        "DOC-detail",
+        "DOC-workspace-read"
+      ],
+      "roles": [
+        "admin",
+        "viewer",
+        "reviewer",
+        "approver",
+        "auditor"
+      ],
+      "validation": [
+        "only admin writes; cannot self grant approver; retention scope explicit"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "permission_denied",
+        "offline",
+        "stale",
+        "pending",
+        "cancelled",
+        "uncertain (when effect-dependent)",
+        "saved/unsaved; denied viewer dialog; stale policy conflict; revoke session prompt"
+      ],
+      "evidence": [
+        "policy/auth epoch changes",
+        "membership audit",
+        "retention run receipt"
+      ],
+      "acceptance_ids": [
+        "DOC-T-AUTH",
+        "DOC-T-RETENTION",
+        "DOC-T-UX"
+      ],
+      "status": "partial",
+      "browser_render_and_three_width_overflow_checked": true,
+      "remaining": "Full original role/state/workflow/manual usability/accessibility gates remain in acceptance-status.json"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "6f438906-3c51-7281-a851-83462bbb750c",
+  "revision": 4,
+  "supplier": "Heidkamp B\u00fcrotechnik GmbH",
+  "invoice_key": "RE-2026-4471",
+  "invoice_face_amount": "1642.20",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "EUR"
+}

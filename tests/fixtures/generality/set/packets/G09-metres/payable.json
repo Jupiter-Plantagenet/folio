@@ -1,0 +1,15 @@
+{
+  "id": "0981ae08-dc1a-7016-9bd9-42d10ae62547",
+  "revision": 4,
+  "supplier": "Traverse Cable Works",
+  "invoice_key": "TCW-6620",
+  "invoice_face_amount": "2254.49",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

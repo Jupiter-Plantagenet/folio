@@ -1,0 +1,5 @@
+# Parser direct dependencies; transitive versions constrained to the validated image.
+pdfplumber==0.11.9
+openpyxl==3.1.5
+defusedxml==0.7.1
+pytesseract==0.3.13

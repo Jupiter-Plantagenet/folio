@@ -1,0 +1,61 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.7.0 -- $REPOSITORY\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: $REPOSITORY
+configfile: pytest.ini
+plugins: anyio-4.15.1
+collecting ... collected 50 items
+
+tests/test_proof.py::test_commit_response_loss_restart_is_read_only_and_one_effect PASSED [  2%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[100] PASSED [  4%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[99.125] PASSED [  6%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[0.001] PASSED [  8%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[1] PASSED [ 10%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[0.000105] PASSED [ 12%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[48.333333] PASSED [ 14%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[20.000001] PASSED [ 16%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[71.25] PASSED [ 18%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[99.413707] PASSED [ 20%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[84.801455] PASSED [ 22%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[28.057718] PASSED [ 24%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[43.348473] PASSED [ 26%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[49.769743] PASSED [ 28%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[66.944363] PASSED [ 30%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[79.36783] PASSED [ 32%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[2.714566] PASSED [ 34%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[30.607257] PASSED [ 36%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[51.987319] PASSED [ 38%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[0.874524] PASSED [ 40%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[87.155783] PASSED [ 42%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[72.68568] PASSED [ 44%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[78.658906] PASSED [ 46%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[83.112361] PASSED [ 48%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[93.023708] PASSED [ 50%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[9.883315] PASSED [ 52%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[61.392259] PASSED [ 54%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[50.416686] PASSED [ 56%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[3.803541] PASSED [ 58%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[60.16554] PASSED [ 60%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[91.6944] PASSED [ 62%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[21.506645] PASSED [ 64%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[73.455189] PASSED [ 66%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[63.244692] PASSED [ 68%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[94.725177] PASSED [ 70%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[32.120743] PASSED [ 72%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[15.481973] PASSED [ 74%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[38.354046] PASSED [ 76%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[92.465525] PASSED [ 78%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[39.07846] PASSED [ 80%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[28.554084] PASSED [ 82%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[14.912289] PASSED [ 84%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[91.602383] PASSED [ 86%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[42.891291] PASSED [ 88%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[73.876093] PASSED [ 90%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[67.618746] PASSED [ 92%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[66.834492] PASSED [ 94%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[70.579362] PASSED [ 96%]
+tests/test_arithmetic.py::test_exact_arithmetic_matches_independent_rational_minor_unit_oracle[66.223538] PASSED [ 98%]
+tests/test_flow.py::test_separate_approval_durable_job_and_source_invalidation PASSED [100%]
+
+- generated xml file: $REPOSITORY\evidence\documents\finish\20261107040534689267\suite.xml -
+============================= 50 passed in 37.03s =============================

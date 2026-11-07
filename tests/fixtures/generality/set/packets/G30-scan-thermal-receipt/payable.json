@@ -1,0 +1,15 @@
+{
+  "id": "43245a0b-c601-c1cf-99e2-ce113d8df72a",
+  "revision": 4,
+  "supplier": "Thornbury Hardware",
+  "invoice_key": "TH-7713",
+  "invoice_face_amount": "550.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

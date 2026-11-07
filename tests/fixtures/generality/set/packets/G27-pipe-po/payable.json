@@ -1,0 +1,15 @@
+{
+  "id": "98717eda-7257-7ad5-a561-604eeee66e2b",
+  "revision": 4,
+  "supplier": "Kestrel Janitorial Supply",
+  "invoice_key": "KJS-1150",
+  "invoice_face_amount": "1115.59",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

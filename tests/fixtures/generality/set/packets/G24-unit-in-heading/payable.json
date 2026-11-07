@@ -1,0 +1,15 @@
+{
+  "id": "d3edc321-cc92-8451-844b-210e6a009ab1",
+  "revision": 4,
+  "supplier": "Palomar Bindery",
+  "invoice_key": "PB-7781",
+  "invoice_face_amount": "481.95",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

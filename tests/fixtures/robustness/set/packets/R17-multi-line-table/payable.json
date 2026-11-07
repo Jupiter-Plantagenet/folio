@@ -1,0 +1,15 @@
+{
+  "id": "602ab986-1431-761e-c68b-03464e70ff9b",
+  "revision": 3,
+  "supplier": "Oakhurst Foods LLC",
+  "invoice_key": "INV-OF-5541",
+  "invoice_face_amount": "440.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

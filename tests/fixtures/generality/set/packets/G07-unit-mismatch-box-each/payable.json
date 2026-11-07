@@ -1,0 +1,15 @@
+{
+  "id": "fe5f8b47-2485-b2e9-2e43-84ccd8d8be14",
+  "revision": 4,
+  "supplier": "Briscoe Lab Supplies",
+  "invoice_key": "BLS-2209",
+  "invoice_face_amount": "204.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

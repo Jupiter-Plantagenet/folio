@@ -1,0 +1,15 @@
+{
+  "id": "56fe37e2-4cb2-6f99-8885-399b536d38ca",
+  "revision": 3,
+  "supplier": "Kittiwake Electronics Pty Ltd",
+  "invoice_key": "INV-KE-2210",
+  "invoice_face_amount": "429.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

@@ -1,0 +1,950 @@
+{
+  "set": "generality-r7",
+  "license": "CC0-1.0",
+  "authorship": "Author-created synthetic packets for Folio round 7 (tests/fixtures/generality/build_fixtures.py); fictional companies; independent of eval/packets.py and of every sealed set",
+  "builder_sha256": "96777349fab98cfe04bf84f92f2a13bf9027bd4fac1100919df7b1da1edc1cb1",
+  "tasks": [
+    {
+      "task_id": "G01-thermal-slip-pcs",
+      "slice": "receipt_layout",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "b2210e450e04a8fe6280c63fde308f94f1a20f280737f5996d708e420c03fa3e",
+          "bytes": 1559
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "11ad41fd2551ff23f5f925aad59f88422e4d3a63d7066eea170bb9e40d889a93",
+          "bytes": 1554
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "89f8475c6d0f2864b8d38ede614f770068e1d980a04b365e78d5d6de2d34b5fb",
+          "bytes": 1542
+        }
+      ]
+    },
+    {
+      "task_id": "G02-delivery-note-boxes",
+      "slice": "receipt_layout",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "e66da29cd3bb62aff3bbd1ebaa8d92d8077c9a6c400d60a8597956edc94e6ac4",
+          "bytes": 1559
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "e2b500adf62aeec0181689063dc672fdb04b469e09ba893101bf544b9f4b7991",
+          "bytes": 1554
+        },
+        {
+          "name": "delivery-note.pdf",
+          "document_role": "receipt",
+          "sha256": "81cd63c11aa93659c34f2a897692cc55b84ae2764534bd0ea4c44ec3e048ed96",
+          "bytes": 1674
+        }
+      ]
+    },
+    {
+      "task_id": "G03-kg-fractional",
+      "slice": "units",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "9f310c90f8de39ac1e73cec68f509e5d9322bc18509a032168306ae05260394f",
+          "bytes": 1552
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "57cf057d3a22ff09b339f09474a35926c78043517c9cc9e71944676e24ec6b54",
+          "bytes": 1535
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "a20c39f9623e24bf390bfc036b87a4a5d0524de94b986650b61c9603d6db3d72",
+          "bytes": 1570
+        }
+      ]
+    },
+    {
+      "task_id": "G04-inspection-accepted",
+      "slice": "receipt_layout",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "669304c7d418bbf0182a1090974a23fa0a25f722180b49bbf115c55a3bd92e0a",
+          "bytes": 1551
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "6bd724c5c8804b64f18b0a944340ac3618e7335fd0d3cf1d0f602aa52aa2114b",
+          "bytes": 1535
+        },
+        {
+          "name": "inspection.pdf",
+          "document_role": "receipt",
+          "sha256": "04f59759578c51ed0c4cd831c34d4e85400c4dddd9f4cf4c2b3a195a61bfd036",
+          "bytes": 1625
+        }
+      ]
+    },
+    {
+      "task_id": "G05-warehouse-log-multi-item",
+      "slice": "receipt_layout",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "f4a757c375df4c02d2eb1d5776c00f5d1a411d5bb8dc40e6c319b63420633f4a",
+          "bytes": 1550
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "735ad1dfc2b93448f24f2328cc15c8e73d1fbee3ac060263c8db6d573c4cc79c",
+          "bytes": 1550
+        },
+        {
+          "name": "receiving-log.pdf",
+          "document_role": "receipt",
+          "sha256": "af814df2711d419f7b8b3fbaf201475e0cd1d6ab89df7fcc5d023654703476f1",
+          "bytes": 1652
+        }
+      ]
+    },
+    {
+      "task_id": "G06-tally-cartons",
+      "slice": "receipt_layout",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "8385334e2c985cb6df711ed50fbe77d818944d765ca77f56fc0ea703bcabc6bb",
+          "bytes": 1545
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "5deacfa38bf4f960e72a39cf753043e9b58cfd0aef35c96c1ab5bcaa0b013337",
+          "bytes": 1529
+        },
+        {
+          "name": "tally.pdf",
+          "document_role": "receipt",
+          "sha256": "a7adf647fb1ab1dae9318a044cbfdb173b08811a8047522d6a259d29ae0bd9af",
+          "bytes": 1565
+        }
+      ]
+    },
+    {
+      "task_id": "G07-unit-mismatch-box-each",
+      "slice": "units",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "f38036404704373223ee9d6a92a9510367d87ee8a8a0549042eb5be9730c9e86",
+          "bytes": 1537
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "5707238ce4685a7e9a46c54545f1273dd28629b2052a33e0b3b7c07f05880070",
+          "bytes": 1517
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "cc9ed8d0dbf14d078b076775fb561124bfa9c6aaf25c374930f4973349d12b44",
+          "bytes": 1500
+        }
+      ]
+    },
+    {
+      "task_id": "G08-unit-conflict-and-missing",
+      "slice": "decision_order",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "94f6433cff8f6e2afa5004900554f9703a99ef6daa13f6968fcb8ccf9167615a",
+          "bytes": 1540
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "abd61c9944c0455b4b624449f3d6e6d7027cc8636481c01c236f74e8328d48e1",
+          "bytes": 1531
+        }
+      ]
+    },
+    {
+      "task_id": "G09-metres",
+      "slice": "units",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "b6577bf832a647f09535bcd4828e35dac8d947fffca9f63262ea11198eb20574",
+          "bytes": 1524
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "fdd002857380775aadb33c4ac4a8134adcacba76fe940be3e8f50eee65174834",
+          "bytes": 1527
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "814b49db83ee52a9fde8ee0160207790d7402953beee70b097ff96adb87beac1",
+          "bytes": 1524
+        }
+      ]
+    },
+    {
+      "task_id": "G10-pairs-table",
+      "slice": "units",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "e201d11e002878323e2caa7e8e84baf1cbecc7056cd7bdc9f423e74c7dfb6c85",
+          "bytes": 1615
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "11487482126cfc6d6881be8e5bd1d33c72b2ced63216dedb5d90e8a393d86306",
+          "bytes": 1530
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "63fabcedaec8046fdbfea31ad1230a6d4f3033b182f65f19408cbeba498f4708",
+          "bytes": 1497
+        }
+      ]
+    },
+    {
+      "task_id": "G11-eur-de-suffix",
+      "slice": "currency",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "e68f97b760b4b35724d06944265101cd474bcd94aae7ff44f10e8a88c9e537af",
+          "bytes": 1564
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "2b6fa479a1fa3cfdf23789bf065c52d9166edbf61982ff08970114e9fd39b76b",
+          "bytes": 1537
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "4aaa8ff1a167d798e6b5a334c8721dbbcdc3d586cf0af8bb2884895a449239c1",
+          "bytes": 1505
+        }
+      ]
+    },
+    {
+      "task_id": "G12-jpy-zero-decimals",
+      "slice": "currency",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "3df6aa7dc42ff70697a3c708be335e313a0ef557dda956c8d36d205627c49bc0",
+          "bytes": 1562
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "db347639d74c4d3743c30d3ac9d948bdadf02c21cb888ad441e5631e25aada11",
+          "bytes": 1551
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "3cd75443512db5a13617f085a3fd094f9426d2f394326ea8bc3a13323b84add1",
+          "bytes": 1507
+        }
+      ]
+    },
+    {
+      "task_id": "G13-kwd-three-decimals",
+      "slice": "currency",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "ae4790df9910fc1f2b7656928000572d980ca978e28dedc28e614e4f382b6810",
+          "bytes": 1555
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "2dd99ed0b08a3b8250e720f0faf1bf2d212dcbe7a9cdb6f596c9cefb7e13afc8",
+          "bytes": 1541
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "acf63490262772e3035c503e1623c4f4dbf072146424bca8ed5145105a3e8623",
+          "bytes": 1504
+        }
+      ]
+    },
+    {
+      "task_id": "G14-gbp-symbol",
+      "slice": "currency",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "09b41e1ecd6397fd7ee4e1549d63ca750dacbe91bb826669f3ae9a5e9e9f531b",
+          "bytes": 1550
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "b706814ef53e71d515eea6d0dae49d88cb79a4a75be3af26cda8a0495b613a32",
+          "bytes": 1539
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "4422e9241dbdcaf420c85ea1d2f5d7d398493e8c1bc8438fac24138a48c36ed1",
+          "bytes": 1504
+        }
+      ]
+    },
+    {
+      "task_id": "G15-eur-docs-usd-payable",
+      "slice": "currency",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "e713caec97f608ed73f0a6e89e4c66d0e00ad9d86d8a1ffcdb84cb62e9a06861",
+          "bytes": 1525
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "edb131df985fef3c403cc459bb35ead0923a6cebfd9dee28c5d4e5c366577c81",
+          "bytes": 1519
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "9670eb1569244d1907b74beacc4ad0092679a3c294c0a3b74ce2f52dae6240bf",
+          "bytes": 1505
+        }
+      ]
+    },
+    {
+      "task_id": "G16-chf-vs-eur-missing-receipt",
+      "slice": "decision_order",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "72d1549e768e64daa60fa188fbd4692d984b637de305833f6b6b52129fe76ff6",
+          "bytes": 1542
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "5822355d7326d9d85c7092c806c3c63d71173bd441d12640f28029ad660646e5",
+          "bytes": 1532
+        }
+      ]
+    },
+    {
+      "task_id": "G17-krw-symbol",
+      "slice": "currency",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "61fcf88f1ee10582322d834a1175539c3d1b5f91c89670cab8dd77ba9d7bbfab",
+          "bytes": 42017
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "07d27123ea14ebeaa8f6145ec470a232dd62c694654717cb33550a28d6894307",
+          "bytes": 1530
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "4bf123c7b899d546e89ad43b1cc89bb04ff69e0b39a5255a80c4aae014a29feb",
+          "bytes": 1502
+        }
+      ]
+    },
+    {
+      "task_id": "G18-sek-nbsp-grouping",
+      "slice": "currency",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "be71e17f5df318ca1f0ece3851a7dcd200353d314ec6d2f69c05ce2a70fbe3ae",
+          "bytes": 1539
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "7460a3667edee2dfc420a7c27fe093b6a42974e2c408b066b891d58abbde3581",
+          "bytes": 1532
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "ba12fc1d2c5ce60a3d27a883fcafd4703accc547f6858536a9c13cbc9a176262",
+          "bytes": 1504
+        }
+      ]
+    },
+    {
+      "task_id": "G19-cad-dollar-declared",
+      "slice": "currency",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "9eab41a694cbe7a89b9f23d3dfeec66ee33c0e476bcf2cad9aa5891a1f6c5739",
+          "bytes": 1565
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "a06845b46618e3520e779bc4d48de4b240d9c3c566883ee4bdf979f1e6a0784f",
+          "bytes": 1529
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "18217e8342353c394e00b27980157cd0391f86559a68fc80802a9df8c1c92f01",
+          "bytes": 1506
+        }
+      ]
+    },
+    {
+      "task_id": "G20-bhd-decimal-comma",
+      "slice": "currency",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "1db4818f70d33755eac535fd2544cd5476297fea3b36835516e653aefdf483f4",
+          "bytes": 1542
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "10f350bbe8cd1258e86198ae6cae6aa9fd310e1ecca65d63ea44253a33ada2c2",
+          "bytes": 1552
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "a0790a5e350920c2b08a166ffb6eb0ec1caadb0a2fbad8b1ac3aca2fc3140bc5",
+          "bytes": 1504
+        }
+      ]
+    },
+    {
+      "task_id": "G21-multiline-invoice-one-match",
+      "slice": "multi_line",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "b6f6a6f1b784030472522e1869ece517cccb7e2cbecf8b0f90e5e058dd26e536",
+          "bytes": 1740
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "91d215b33d504336fea8a16e30e3aee51f43c095bcd076c0362a7ba3732c4123",
+          "bytes": 1591
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "145a2054984c7c6ba6beed56cca07e7722c0c1a022d7e5285b12a507f4de83fd",
+          "bytes": 1505
+        }
+      ]
+    },
+    {
+      "task_id": "G22-multiline-po-one-match",
+      "slice": "multi_line",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "2f720f7f6b23d05c5c442ed55774f87fb417ebc5c43fa35ee1e5487ec3ffb5b5",
+          "bytes": 1595
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "9d7bfbeeefdef2e08e644781c540f221af67183dc8d8def077c2982979e87ae9",
+          "bytes": 1661
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "5046c1b072648ca39b44633f9f2e34e6c63eaacc7fe9f87d373c408975afedd3",
+          "bytes": 1507
+        }
+      ]
+    },
+    {
+      "task_id": "G23-two-shared-lines",
+      "slice": "multi_line",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "0bb5613356e120d69c9057f92e5c7e3a6824ad35d8b99876d75fab17f7b01571",
+          "bytes": 1660
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "57761077c7c62ba723bee58ea3b4e3ceb5b58ef8ed60453a99030136e17c0043",
+          "bytes": 1614
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "0c5b2e1c7b17f8711ceaa643b76460762ed46b5a0c2fe7e841e4054e248eb57d",
+          "bytes": 1505
+        }
+      ]
+    },
+    {
+      "task_id": "G24-unit-in-heading",
+      "slice": "multi_line",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "c698754956a26f1d3fad7582ea43a8da8a96a3a6f6bfc09b92c8caf29e082a50",
+          "bytes": 1592
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "efb900b84fb1865b82a6478d96ddd6ad5624c435de24701207cca4d61d91e499",
+          "bytes": 1519
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "5660d687edb279cbdb5198899a407b5dd6e7b113cb242791fee3e63f59b3abbf",
+          "bytes": 1504
+        }
+      ]
+    },
+    {
+      "task_id": "G25-csv-semicolon-decimal-comma",
+      "slice": "csv_dialect",
+      "files": [
+        {
+          "name": "invoice.csv",
+          "document_role": "invoice",
+          "sha256": "9709359b08c2fc47da3d9e7329e3860ce3fba2be527d90486168b6cb6ef1e9c1",
+          "bytes": 144
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "40c4325bd15d29d5350e0f8e99d93b2fa8b759e1bd0c151db08acea8b7855ca4",
+          "bytes": 1527
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "d9ee0e1dbe80cbcd0aef13d941d0e8a69fd77c4a545c74f1557dc0d57276eae5",
+          "bytes": 1505
+        }
+      ]
+    },
+    {
+      "task_id": "G26-tsv-receipt-table",
+      "slice": "csv_dialect",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "ae6c827b3804e0fb67861180c211f0950d0de022206fda545055cd47f8297391",
+          "bytes": 1537
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "c3e9bfd2188242e03ec4db1c26f5b715894dc27d761ec30e9ce7d55440c3e28b",
+          "bytes": 1526
+        },
+        {
+          "name": "receipt.csv",
+          "document_role": "receipt",
+          "sha256": "e87080430fa09a0950d9f257c9c265bb91afe6d6f9a163e0fe036509236989bc",
+          "bytes": 97
+        }
+      ]
+    },
+    {
+      "task_id": "G27-pipe-po",
+      "slice": "csv_dialect",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "70f1b30d05875ce0cda3c7fcdd2b003fc3c034568a06068938bafde707860eeb",
+          "bytes": 1546
+        },
+        {
+          "name": "purchase-order.csv",
+          "document_role": "purchase_order",
+          "sha256": "1f254fedf20c630949ceacc8d10e6cecd5ccc5952f0b6ab04f7b781c24187687",
+          "bytes": 104
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "3fd8f128f3face9facbb8619e1c79b487b55d86d99604e64828fcbe724d10a2f",
+          "bytes": 1506
+        }
+      ]
+    },
+    {
+      "task_id": "G28-csv-ambiguous-dialect",
+      "slice": "csv_dialect",
+      "files": [
+        {
+          "name": "invoice.csv",
+          "document_role": "invoice",
+          "sha256": "9668407332e55c2d338588ccfc9846836f40007934f7a2f177be0b7283e06273",
+          "bytes": 126
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "8c4a7b78fdd890ab9149c9e1be701b0b0e1a54e7e182e1b016e342d2b438f159",
+          "bytes": 1511
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "bf20041c4f6b9ca1c4bbe0d19ce540377adeada2284e214b4f4bc30220093743",
+          "bytes": 1501
+        }
+      ]
+    },
+    {
+      "task_id": "G29-xlsx-receipt-pcs",
+      "slice": "csv_dialect",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "08e7a131ffe7a9f466b2cffda96cdaae30eb03f9b35f69ccaac148854e7f7d5f",
+          "bytes": 1540
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "aae688ba53447948bda1390852723432a6dfaf4d82745f4a6686b589d2573e98",
+          "bytes": 1526
+        },
+        {
+          "name": "receipt.xlsx",
+          "document_role": "receipt",
+          "sha256": "b6056beedc4501422c365b8cc23ed300717fb20ce4f6e020572a321db8dc768c",
+          "bytes": 4903
+        }
+      ]
+    },
+    {
+      "task_id": "G30-scan-thermal-receipt",
+      "slice": "scan",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "d1868cb9cf681cb339109d7a2cf8a93b8507215b285670b3ee7f70c3f7a1d13e",
+          "bytes": 1539
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "3ce2207ff313b338f5ab634d4e1a357ff1824be8b8131e3718c652a4c9fe6b21",
+          "bytes": 1520
+        },
+        {
+          "name": "receipt-scan.pdf",
+          "document_role": "receipt",
+          "sha256": "e69bc2bd62cc3ca0df2d73c9808c79e9199c4ee0cae24283d8e761e5d46c0885",
+          "bytes": 32480
+        }
+      ]
+    },
+    {
+      "task_id": "G31-scan-eur-invoice",
+      "slice": "scan",
+      "files": [
+        {
+          "name": "invoice-scan.pdf",
+          "document_role": "invoice",
+          "sha256": "e681caf2d9da0f7fdaf25de7627b78c2aeaad5bb86b07769ac638849d02f4f92",
+          "bytes": 30445
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "675a0c8493925c8b290c3e3cc62d031445b54cef7f746408a192004207e1c715",
+          "bytes": 1516
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "1071e12a943512644401674fb64c06d88d4ccb9d7fa56367e8e87a7002d047ad",
+          "bytes": 1506
+        }
+      ]
+    },
+    {
+      "task_id": "G32-scan-quantity-trap",
+      "slice": "scan",
+      "files": [
+        {
+          "name": "invoice-scan.pdf",
+          "document_role": "invoice",
+          "sha256": "abdebe63a4f5704de9c9ba7399112ec69825c1f483fe190ccd2d3033609181cf",
+          "bytes": 55565
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "1731ad5bbe51a3d6de371c6eddd997bf39202a289d535957ac3f906acde4ae25",
+          "bytes": 1540
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "ed1483e88536e99bd32974f60572225abeb746ccfdf2dd4ebe8452964c963552",
+          "bytes": 1517
+        }
+      ]
+    },
+    {
+      "task_id": "G33-totals-ladder",
+      "slice": "precision",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "748c6c40d9fb9cea6a1242a6ec31245b52305ae358cf39a6babd1ae88e53f57c",
+          "bytes": 1607
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "8274fafde9b13176c8a112f7e5707967daeb2c372a3b7d7bc3b04596987a14b4",
+          "bytes": 1526
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "99f271e1a08b1c27399ac68e8a4a136b9ebfff50d36011f2d1c9b24296dca421",
+          "bytes": 1505
+        }
+      ]
+    },
+    {
+      "task_id": "G34-total-is-subtotal",
+      "slice": "precision",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "1709f226bdf69a548c84bda6f965773dbfda8742aeae00a8c9b1f76da7dc4192",
+          "bytes": 1550
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "ffbac5a83b6d90c9b32496125be94f66639df04c60caafe4a1532086b5234094",
+          "bytes": 1521
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "f4bb07b92809d494fec2b62cd3d53d4cf0aff7c209362ef54a752077f50d365e",
+          "bytes": 1505
+        }
+      ]
+    },
+    {
+      "task_id": "G35-freight-line",
+      "slice": "precision",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "deea877e64a2d3f8fb637b00c63a56a013893a700fb587dd7ae924748baf6feb",
+          "bytes": 1554
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "0aea39c32dcd883d5842bde7c45db199e70530b0509b8d0c4f364b9d2050d1d5",
+          "bytes": 1519
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "66cb8706e6a4243299e7aeddcefbe967a484dc1015d532de5ae332bd5322159c",
+          "bytes": 1505
+        }
+      ]
+    },
+    {
+      "task_id": "G36-supplier-conflict-missing-receipt",
+      "slice": "decision_order",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "403c8a68449b16ab78e9caa7887c5be7fc331344aff9cc937f268e844c400433",
+          "bytes": 1556
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "ee64036125604092b1b878f58e83d225e939f304d9c4ff25492aebbc3ae9792b",
+          "bytes": 1519
+        }
+      ]
+    },
+    {
+      "task_id": "G37-receipt-other-po",
+      "slice": "decision_order",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "6edb18bb1450ad701388bb913572edd6e816a0d4f28308c4a2a5e31b4e54c0ca",
+          "bytes": 1535
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "a7bbb75e26686cd494fc716865e8e883a2dbab0ad6c9420df14e202b1734cd1f",
+          "bytes": 1522
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "1ef145a6aa7a6dfcca1669e69fabdc6256db1445439d332dab3d01c35c55991a",
+          "bytes": 1506
+        }
+      ]
+    },
+    {
+      "task_id": "G38-control-units-everywhere",
+      "slice": "units",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "21fa6cbf55090bca264205b320b157f6b15f9014fda961a9a1a6c1e71f257e06",
+          "bytes": 1549
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "d4b90f4b3815dc1029757b75ba5b94b8ca2848cbf0921186afad198bc6f19496",
+          "bytes": 1530
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "a4e1c95f0a175a116cd4857ed2fd1d246120ecb9cf94928f6f9fdb3d842d6e62",
+          "bytes": 1504
+        }
+      ]
+    },
+    {
+      "task_id": "G39-pallets",
+      "slice": "units",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "d035b8fb3ec7161e32c9f2927eb69aa9931cadf3b01842e595a1756cd9407624",
+          "bytes": 1544
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "f3f370ef7e2626fcd72ab371b93e8b1b5ed47329d43ebbf36dde8edd59951687",
+          "bytes": 1531
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "2d074f40b59c9de7c039eb71ebb40d6c130826e1c4fa996780a1a9117fe06bb2",
+          "bytes": 1529
+        }
+      ]
+    },
+    {
+      "task_id": "G40-receipt-kg-invoice-each",
+      "slice": "units",
+      "files": [
+        {
+          "name": "invoice.pdf",
+          "document_role": "invoice",
+          "sha256": "03ce5668d35da3cbc4ef14cf849f4a72c50a006e4c22124a4288a4d105b0f894",
+          "bytes": 1527
+        },
+        {
+          "name": "purchase-order.pdf",
+          "document_role": "purchase_order",
+          "sha256": "683662bd752a980eb8f41d16e44a2865216ef725e0ad4f433cf13b69f667fc87",
+          "bytes": 1519
+        },
+        {
+          "name": "receipt.pdf",
+          "document_role": "receipt",
+          "sha256": "2c75f3c76346b41de8a82d63d5815316541e9a674e857d1942f038d8539747e7",
+          "bytes": 1505
+        }
+      ]
+    }
+  ]
+}

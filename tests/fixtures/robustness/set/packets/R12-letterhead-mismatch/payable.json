@@ -1,0 +1,15 @@
+{
+  "id": "166491b9-a6c3-5603-1f64-9013f334e3da",
+  "revision": 3,
+  "supplier": "Tidewell Marine Supply",
+  "invoice_key": "INV-HP-118",
+  "invoice_face_amount": "480.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

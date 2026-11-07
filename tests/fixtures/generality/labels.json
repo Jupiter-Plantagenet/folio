@@ -1,0 +1,800 @@
+{
+  "set": "generality-r7",
+  "tasks": {
+    "G01-thermal-slip-pcs": {
+      "slice": "receipt_layout",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "236"
+        }
+      ],
+      "meta": {
+        "receipt": "thermal slip",
+        "unit": "pcs"
+      },
+      "expect": {
+        "invoice": "HF-30418",
+        "invoice_quantity": "240",
+        "ordered_quantity": "240",
+        "received_quantity": "236",
+        "unit_price": "3.15",
+        "tax_rate": "0.06",
+        "invoice_face_amount": "801.36",
+        "currency": "USD",
+        "unit": "each",
+        "supplier_check": "match"
+      }
+    },
+    "G02-delivery-note-boxes": {
+      "slice": "receipt_layout",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "18"
+        }
+      ],
+      "meta": {
+        "receipt": "delivery note table",
+        "unit": "boxes",
+        "currency": "GBP"
+      },
+      "expect": {
+        "invoice_quantity": "18",
+        "ordered_quantity": "20",
+        "received_quantity": "18",
+        "unit_price": "11.40",
+        "tax_rate": "0.2",
+        "invoice_face_amount": "246.24",
+        "currency": "GBP",
+        "unit": "box",
+        "supplier_check": "match"
+      }
+    },
+    "G03-kg-fractional": {
+      "slice": "units",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "412.5"
+        }
+      ],
+      "meta": {
+        "unit": "kg"
+      },
+      "expect": {
+        "invoice_quantity": "412.5",
+        "ordered_quantity": "450",
+        "received_quantity": "412.5",
+        "unit_price": "3.80",
+        "invoice_face_amount": "1567.50",
+        "unit": "kg",
+        "currency": "USD"
+      }
+    },
+    "G04-inspection-accepted": {
+      "slice": "receipt_layout",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "294"
+        }
+      ],
+      "meta": {
+        "receipt": "inspection note",
+        "unit": "units"
+      },
+      "expect": {
+        "invoice_quantity": "300",
+        "ordered_quantity": "300",
+        "received_quantity": "294",
+        "unit": "each",
+        "invoice_face_amount": "2504.25"
+      }
+    },
+    "G05-warehouse-log-multi-item": {
+      "slice": "receipt_layout",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "540"
+        }
+      ],
+      "meta": {
+        "receipt": "warehouse log, 3 items",
+        "binding": "SKU"
+      },
+      "expect": {
+        "invoice_quantity": "600",
+        "ordered_quantity": "600",
+        "received_quantity": "540",
+        "unit": "each"
+      }
+    },
+    "G06-tally-cartons": {
+      "slice": "receipt_layout",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "60"
+        }
+      ],
+      "meta": {
+        "receipt": "tally sheet",
+        "unit": "cartons"
+      },
+      "expect": {
+        "invoice_quantity": "64",
+        "ordered_quantity": "64",
+        "received_quantity": "60",
+        "unit": "carton",
+        "invoice_face_amount": "1524.16"
+      }
+    },
+    "G07-unit-mismatch-box-each": {
+      "slice": "units",
+      "allowed": [
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "conflict": "unit"
+      },
+      "expect": {
+        "unit": null,
+        "conflict": "unit"
+      }
+    },
+    "G08-unit-conflict-and-missing": {
+      "slice": "decision_order",
+      "allowed": [
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "conflict": "unit",
+        "missing": "receipt"
+      },
+      "expect": {
+        "received_quantity": null,
+        "unit": null,
+        "conflict": "unit"
+      }
+    },
+    "G09-metres": {
+      "slice": "units",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "860"
+        }
+      ],
+      "meta": {
+        "unit": "m"
+      },
+      "expect": {
+        "invoice_quantity": "860",
+        "ordered_quantity": "1000",
+        "received_quantity": "860",
+        "unit": "m",
+        "invoice_face_amount": "2254.49"
+      }
+    },
+    "G10-pairs-table": {
+      "slice": "units",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "480"
+        }
+      ],
+      "meta": {
+        "unit": "pairs",
+        "layout": "one-row table with UoM column"
+      },
+      "expect": {
+        "invoice_quantity": "500",
+        "ordered_quantity": "500",
+        "received_quantity": "480",
+        "unit": "pair",
+        "unit_price": "0.42",
+        "invoice_face_amount": "210.00"
+      }
+    },
+    "G11-eur-de-suffix": {
+      "slice": "currency",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "70"
+        }
+      ],
+      "meta": {
+        "currency": "EUR",
+        "locale": "de"
+      },
+      "expect": {
+        "invoice_quantity": "75",
+        "ordered_quantity": "75",
+        "received_quantity": "70",
+        "unit_price": "18.40",
+        "tax_rate": "0.19",
+        "invoice_face_amount": "1642.20",
+        "currency": "EUR",
+        "unit": "each"
+      }
+    },
+    "G12-jpy-zero-decimals": {
+      "slice": "currency",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "1150"
+        }
+      ],
+      "meta": {
+        "currency": "JPY",
+        "minor_units": 0
+      },
+      "expect": {
+        "invoice_quantity": "1200",
+        "ordered_quantity": "1200",
+        "received_quantity": "1150",
+        "unit_price": "980",
+        "invoice_face_amount": "1293600",
+        "currency": "JPY",
+        "tax_rate": "0.1"
+      }
+    },
+    "G13-kwd-three-decimals": {
+      "slice": "currency",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "38"
+        }
+      ],
+      "meta": {
+        "currency": "KWD",
+        "minor_units": 3
+      },
+      "expect": {
+        "invoice_quantity": "40",
+        "ordered_quantity": "40",
+        "received_quantity": "38",
+        "unit_price": "56.250",
+        "invoice_face_amount": "2250.000",
+        "currency": "KWD",
+        "unit": "each"
+      }
+    },
+    "G14-gbp-symbol": {
+      "slice": "currency",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "20"
+        }
+      ],
+      "meta": {
+        "currency": "GBP"
+      },
+      "expect": {
+        "invoice_quantity": "20",
+        "ordered_quantity": "20",
+        "received_quantity": "20",
+        "unit_price": "45.25",
+        "invoice_face_amount": "1086.00",
+        "currency": "GBP"
+      }
+    },
+    "G15-eur-docs-usd-payable": {
+      "slice": "currency",
+      "allowed": [
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "conflict": "payable currency"
+      },
+      "expect": {
+        "currency": "EUR",
+        "invoice_face_amount": "2323.20"
+      }
+    },
+    "G16-chf-vs-eur-missing-receipt": {
+      "slice": "decision_order",
+      "allowed": [
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "conflict": "currency",
+        "missing": "receipt"
+      },
+      "expect": {
+        "received_quantity": null,
+        "currency": null,
+        "conflict": "currency"
+      }
+    },
+    "G17-krw-symbol": {
+      "slice": "currency",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "196"
+        }
+      ],
+      "meta": {
+        "currency": "KRW",
+        "minor_units": 0
+      },
+      "expect": {
+        "invoice_quantity": "200",
+        "ordered_quantity": "200",
+        "received_quantity": "196",
+        "unit_price": "15000",
+        "invoice_face_amount": "3300000",
+        "currency": "KRW"
+      }
+    },
+    "G18-sek-nbsp-grouping": {
+      "slice": "currency",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "50"
+        }
+      ],
+      "meta": {
+        "currency": "SEK",
+        "locale": "sv"
+      },
+      "expect": {
+        "invoice_quantity": "50",
+        "received_quantity": "50",
+        "unit_price": "200.00",
+        "invoice_face_amount": "12500.00",
+        "currency": "SEK"
+      }
+    },
+    "G19-cad-dollar-declared": {
+      "slice": "currency",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "12"
+        }
+      ],
+      "meta": {
+        "currency": "CAD",
+        "symbol": "$"
+      },
+      "expect": {
+        "invoice_quantity": "16",
+        "received_quantity": "12",
+        "unit_price": "87.50",
+        "invoice_face_amount": "1582.00",
+        "currency": "CAD"
+      }
+    },
+    "G20-bhd-decimal-comma": {
+      "slice": "currency",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "9"
+        }
+      ],
+      "meta": {
+        "currency": "BHD",
+        "minor_units": 3,
+        "locale": "decimal comma"
+      },
+      "expect": {
+        "invoice_quantity": "9",
+        "received_quantity": "9",
+        "unit_price": "120.500",
+        "invoice_face_amount": "1192.950",
+        "currency": "BHD"
+      }
+    },
+    "G21-multiline-invoice-one-match": {
+      "slice": "multi_line",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "24"
+        }
+      ],
+      "meta": {
+        "invoice_rows": 3,
+        "binding": "item code"
+      },
+      "expect": {
+        "invoice_quantity": null,
+        "ordered_quantity": "25",
+        "received_quantity": "24",
+        "unit_price": null,
+        "invoice_face_amount": null
+      }
+    },
+    "G22-multiline-po-one-match": {
+      "slice": "multi_line",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "140"
+        }
+      ],
+      "meta": {
+        "po_rows": 3,
+        "binding": "SKU"
+      },
+      "expect": {
+        "invoice_quantity": "150",
+        "ordered_quantity": "150",
+        "received_quantity": "140",
+        "unit_price": "4.20",
+        "invoice_face_amount": "669.38"
+      }
+    },
+    "G23-two-shared-lines": {
+      "slice": "multi_line",
+      "allowed": [
+        {
+          "mode": "escalate"
+        },
+        {
+          "mode": "hold"
+        }
+      ],
+      "meta": {
+        "rows": 2,
+        "binding": "ambiguous"
+      },
+      "expect": {
+        "invoice_quantity": null,
+        "ordered_quantity": null
+      }
+    },
+    "G24-unit-in-heading": {
+      "slice": "multi_line",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "36"
+        }
+      ],
+      "meta": {
+        "layout": "unit in column heading"
+      },
+      "expect": {
+        "invoice_quantity": "36",
+        "ordered_quantity": "36",
+        "received_quantity": "36",
+        "unit_price": "12.75",
+        "invoice_face_amount": "481.95",
+        "unit": "each"
+      }
+    },
+    "G25-csv-semicolon-decimal-comma": {
+      "slice": "csv_dialect",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "55"
+        }
+      ],
+      "meta": {
+        "dialect": "semicolon",
+        "locale": "decimal comma"
+      },
+      "expect": {
+        "invoice_quantity": "60",
+        "unit_price": "12.40",
+        "invoice_face_amount": "900.24",
+        "currency": "EUR",
+        "received_quantity": "55",
+        "tax_rate": "0.21"
+      }
+    },
+    "G26-tsv-receipt-table": {
+      "slice": "csv_dialect",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "84"
+        }
+      ],
+      "meta": {
+        "dialect": "tab",
+        "receipt": "table"
+      },
+      "expect": {
+        "received_quantity": "84",
+        "invoice_quantity": "90",
+        "ordered_quantity": "90",
+        "unit": "each"
+      }
+    },
+    "G27-pipe-po": {
+      "slice": "csv_dialect",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "150"
+        }
+      ],
+      "meta": {
+        "dialect": "pipe"
+      },
+      "expect": {
+        "ordered_quantity": "150",
+        "supplier": "Kestrel Janitorial Supply",
+        "invoice_quantity": "150",
+        "received_quantity": "150"
+      }
+    },
+    "G28-csv-ambiguous-dialect": {
+      "slice": "csv_dialect",
+      "allowed": [
+        {
+          "mode": "hold"
+        },
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "dialect": "ambiguous ; and ,"
+      },
+      "expect": {
+        "invoice_quantity": null
+      }
+    },
+    "G29-xlsx-receipt-pcs": {
+      "slice": "csv_dialect",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "46"
+        }
+      ],
+      "meta": {
+        "format": "xlsx receipt table",
+        "unit": "pcs"
+      },
+      "expect": {
+        "received_quantity": "46",
+        "unit": "each"
+      }
+    },
+    "G30-scan-thermal-receipt": {
+      "slice": "scan",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "88"
+        },
+        {
+          "mode": "hold"
+        }
+      ],
+      "meta": {
+        "scan": "receipt",
+        "unit": "pcs"
+      },
+      "expect": {
+        "received_quantity": "88",
+        "ocr_or_unresolved": [
+          "received_quantity"
+        ]
+      }
+    },
+    "G31-scan-eur-invoice": {
+      "slice": "scan",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "110"
+        },
+        {
+          "mode": "hold"
+        },
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "scan": "invoice",
+        "currency": "EUR"
+      },
+      "expect": {
+        "invoice_quantity": "120",
+        "unit_price": "9.50",
+        "invoice_face_amount": "1368.00",
+        "currency": "EUR",
+        "ocr_or_unresolved": [
+          "invoice_quantity",
+          "unit_price",
+          "invoice_face_amount",
+          "currency",
+          "tax_rate"
+        ]
+      }
+    },
+    "G32-scan-quantity-trap": {
+      "slice": "scan",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "100"
+        },
+        {
+          "mode": "hold"
+        },
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "scan": "invoice",
+        "trap": "payment terms 7 days, line 7"
+      },
+      "expect": {
+        "invoice_quantity": "120",
+        "invoice_face_amount": "6220.80",
+        "ocr_or_unresolved": [
+          "invoice_quantity",
+          "unit_price",
+          "invoice_face_amount",
+          "tax_rate",
+          "invoice",
+          "currency"
+        ]
+      }
+    },
+    "G33-totals-ladder": {
+      "slice": "precision",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "50"
+        }
+      ],
+      "meta": {
+        "trap": "subtotal/tax/total/paid/balance"
+      },
+      "expect": {
+        "invoice_face_amount": "1203.95",
+        "unit_price": "19.90",
+        "tax_rate": "0.1",
+        "invoice_quantity": "55"
+      }
+    },
+    "G34-total-is-subtotal": {
+      "slice": "precision",
+      "allowed": [
+        {
+          "mode": "escalate"
+        },
+        {
+          "mode": "hold"
+        }
+      ],
+      "meta": {
+        "trap": "TOTAL before VAT, unlabelled payable"
+      },
+      "expect": {
+        "invoice_face_amount": null
+      }
+    },
+    "G35-freight-line": {
+      "slice": "precision",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "36"
+        }
+      ],
+      "meta": {
+        "trap": "freight changes face"
+      },
+      "expect": {
+        "invoice_face_amount": "1085.00",
+        "invoice_quantity": "40"
+      }
+    },
+    "G36-supplier-conflict-missing-receipt": {
+      "slice": "decision_order",
+      "allowed": [
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "conflict": "supplier",
+        "missing": "receipt"
+      },
+      "expect": {
+        "received_quantity": null,
+        "conflict": "supplier"
+      }
+    },
+    "G37-receipt-other-po": {
+      "slice": "decision_order",
+      "allowed": [
+        {
+          "mode": "hold"
+        },
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "missing": "receipt for this PO"
+      },
+      "expect": {
+        "conflict": "purchase_order"
+      }
+    },
+    "G38-control-units-everywhere": {
+      "slice": "units",
+      "allowed": [
+        {
+          "mode": "no_change"
+        }
+      ],
+      "meta": {
+        "control": true
+      },
+      "expect": {
+        "invoice_quantity": "25",
+        "ordered_quantity": "25",
+        "received_quantity": "25",
+        "unit": "each",
+        "currency": "USD",
+        "invoice_face_amount": "3262.50"
+      }
+    },
+    "G39-pallets": {
+      "slice": "units",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "3"
+        }
+      ],
+      "meta": {
+        "unit": "pallets"
+      },
+      "expect": {
+        "invoice_quantity": "4",
+        "ordered_quantity": "4",
+        "received_quantity": "3",
+        "unit": "pallet"
+      }
+    },
+    "G40-receipt-kg-invoice-each": {
+      "slice": "units",
+      "allowed": [
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "conflict": "unit"
+      },
+      "expect": {
+        "unit": null,
+        "conflict": "unit"
+      }
+    }
+  }
+}

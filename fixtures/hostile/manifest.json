@@ -1,0 +1,596 @@
+{
+  "generator": "scripts/hostile_fixtures.py",
+  "generator_sha256": "ed2f2e8b2f679fce0492a13492b9fcc910efdc7b75f5eaf2bacbda02fd7c9a2f",
+  "authorship": "Independently authored synthetic hostile test assets, generated deterministically by the generator above; not private documents and not copied from any third party",
+  "license": "CC0-1.0",
+  "rights": "All bytes self-authored. Fonts: none embedded; PDFs reference Helvetica by name and two descriptor-only fonts. Raster text uses Pillow's bundled Aileron Regular (CC0). No EICAR or real malware.",
+  "files": [
+    {
+      "name": "csv-1002-rows.csv",
+      "sha256": "4f8d50f87498bac5f0eea32cdea4c2446e8b6fcc80845584eb0c7b05a0e61110",
+      "bytes": 8914,
+      "suite": "parser",
+      "case": "csv-row-limit"
+    },
+    {
+      "name": "csv-cp1252.csv",
+      "sha256": "6454b337e652ffb76eb7f5d1f7095572439fc24d3c8b6fbad7d810b03aeb2a59",
+      "bytes": 191,
+      "suite": "provenance",
+      "case": "csv-encoding",
+      "truth": "truth/csv-cp1252.csv.json",
+      "truth_sha256": "b77006e331e279bab80e14e7a82c9927b1709e49003c0556b34d8069bdaeee83"
+    },
+    {
+      "name": "csv-formula-injection.csv",
+      "sha256": "a32ab9506f85816b5e75566df9ee1cb733f342e2bd2872d9c55253c8b9b797d0",
+      "bytes": 75,
+      "suite": "parser",
+      "case": "csv-formula-injection",
+      "expect": "literal text only"
+    },
+    {
+      "name": "csv-huge-cell.csv",
+      "sha256": "4876cf3a005bc92eb695d9220e4f252422550aaa5a0ce2385a2d60cab04ee473",
+      "bytes": 20008,
+      "suite": "parser",
+      "case": "csv-cell-limit"
+    },
+    {
+      "name": "csv-inch-mark.csv",
+      "sha256": "6eb61b7e0ddad5cdf76df37e1241af55b69dd2fe087b1cc27c5db47c44ecc9cb",
+      "bytes": 76,
+      "suite": "provenance",
+      "case": "csv-unquoted-quote",
+      "expect": "csv.reader keeps the inch mark literal; byte ranges must match each cell",
+      "truth": "truth/csv-inch-mark.csv.json",
+      "truth_sha256": "0519f0ad34f8207cacc17028942ac6cd14a2968adf43a9baa0aaa6b6ef023ead"
+    },
+    {
+      "name": "csv-nul.csv",
+      "sha256": "8e1b67c2ec32f6ddc860bcfbf4254e5697bd294d327749bbfc0f6761904d084c",
+      "bytes": 19,
+      "suite": "parser",
+      "case": "csv-nul"
+    },
+    {
+      "name": "csv-utf16be-bom.csv",
+      "sha256": "59fe8b813369c3c09712d6b4e0d1f6b4b5a60557945a44c05c4623868740c569",
+      "bytes": 378,
+      "suite": "provenance",
+      "case": "csv-encoding",
+      "truth": "truth/csv-utf16be-bom.csv.json",
+      "truth_sha256": "de1054d0b8193db3d7263e3eaf9d3ec414ddcb800959605f00a48c8905488a83"
+    },
+    {
+      "name": "csv-utf16le-bom.csv",
+      "sha256": "5844fb45915634043325035b19c1cb13bebc1c6e89eb16e1224ed3271a92bb46",
+      "bytes": 384,
+      "suite": "provenance",
+      "case": "csv-encoding",
+      "truth": "truth/csv-utf16le-bom.csv.json",
+      "truth_sha256": "8cbfd75bdb62670f55fc3617aefd4468adacf106103d891ffd64ecc187ff3a1e"
+    },
+    {
+      "name": "csv-utf8-bom.csv",
+      "sha256": "de5108117e2b7a4cac2f8f5b84cb6aa4ca4680110b5f862133e337ff4bcfc254",
+      "bytes": 201,
+      "suite": "provenance",
+      "case": "csv-encoding",
+      "truth": "truth/csv-utf8-bom.csv.json",
+      "truth_sha256": "df9cf2402f16063a90cef28c0278a667fb3dedbdc4a8557637538c3ab72ac3c0"
+    },
+    {
+      "name": "csv-utf8-hostile-unicode.csv",
+      "sha256": "13425b37ec8e1d4b77fc3213b49b71868b71fd44d3b3499760af3d9a364f00e4",
+      "bytes": 175,
+      "suite": "provenance",
+      "case": "csv-encoding",
+      "truth": "truth/csv-utf8-hostile-unicode.csv.json",
+      "truth_sha256": "1fdcf9641b9907c9f19b37710a1d6cb84551b41627cf9036aa9c2227e99e9754"
+    },
+    {
+      "name": "csv-utf8.csv",
+      "sha256": "de1448e0c773864d8c2d19c9b14cc27f598f7071612595f7ca78284254053975",
+      "bytes": 198,
+      "suite": "provenance",
+      "case": "csv-encoding",
+      "truth": "truth/csv-utf8.csv.json",
+      "truth_sha256": "4996ebd2d5b48bc3f408a33815aebf77dc539793f2184b3f41e3392e9155cdfe"
+    },
+    {
+      "name": "geom-crop-r0.pdf",
+      "sha256": "820851ae4786d0cad293c64684a763d8fa4d5ec3cb78c4e79a5572ae4609e6a7",
+      "bytes": 4654,
+      "suite": "provenance",
+      "case": "pdf-rotate-crop",
+      "expect": "crop-frame boxes; hidden text outside CropBox never extracted",
+      "truth": "truth/geom-crop-r0.pdf.json",
+      "truth_sha256": "a2324a54cd800e4af8fdaef93fa6aac994a94bc41ba5634b057afbd31899e121"
+    },
+    {
+      "name": "geom-crop-r180.pdf",
+      "sha256": "f11f870b5ac033688762f02a35f8a312606f910184d9410c0ed04a8270e038f3",
+      "bytes": 4666,
+      "suite": "provenance",
+      "case": "pdf-rotate-crop",
+      "expect": "crop-frame boxes; hidden text outside CropBox never extracted",
+      "truth": "truth/geom-crop-r180.pdf.json",
+      "truth_sha256": "8502f964ca698f8ecd81a2666d1d87f23abb7cb9ca3f0e6ec8c0ea6d0d89b14b"
+    },
+    {
+      "name": "geom-crop-r270.pdf",
+      "sha256": "0d11a4b0374dffe3b71b08b9477ffcd1c7bc31a2364d0190c35b803735bade96",
+      "bytes": 4666,
+      "suite": "provenance",
+      "case": "pdf-rotate-crop",
+      "expect": "crop-frame boxes; hidden text outside CropBox never extracted",
+      "truth": "truth/geom-crop-r270.pdf.json",
+      "truth_sha256": "14c7d67762c8c334bae86e941385706fb872079707d760ad44106f6457c1e8a2"
+    },
+    {
+      "name": "geom-crop-r90.pdf",
+      "sha256": "abae0bee84bd4db190963b4d7ad338e3a878fbb8db12ed73f2d7a0c82efc3752",
+      "bytes": 4665,
+      "suite": "provenance",
+      "case": "pdf-rotate-crop",
+      "expect": "crop-frame boxes; hidden text outside CropBox never extracted",
+      "truth": "truth/geom-crop-r90.pdf.json",
+      "truth_sha256": "b73659fe770e79025eb8a0f96d5b68f0ecfe133ae0aec272d28258b058ac6c48"
+    },
+    {
+      "name": "geom-media-offset-crop-r90.pdf",
+      "sha256": "514386514f3f98aa9237490c196ee03b6508e5582e480280b0c8fa95a76efdd0",
+      "bytes": 4671,
+      "suite": "provenance",
+      "case": "pdf-mediabox-origin-crop-rotate",
+      "expect": "non-zero MediaBox origin handled; crop-frame boxes",
+      "truth": "truth/geom-media-offset-crop-r90.pdf.json",
+      "truth_sha256": "809bbe27283f8a500601e8af97b82833d52e4a8322acf00685acd7659b6be908"
+    },
+    {
+      "name": "geom-r0.pdf",
+      "sha256": "46896fa3323e571e4664b216d72ecf282b3bbd40970d4fd9c43bfbe29759633b",
+      "bytes": 4596,
+      "suite": "provenance",
+      "case": "pdf-rotate",
+      "expect": "words in reading order; boxes IoU>=0.95 in displayed crop frame",
+      "truth": "truth/geom-r0.pdf.json",
+      "truth_sha256": "6630293fec1d120af562db4e5bc05f4e609bc3b01dd48bd0002149ca2101dbc2"
+    },
+    {
+      "name": "geom-r180.pdf",
+      "sha256": "0ca2b80cde7d566087eb9f8a42256fd2e31fcec1b22bbf24670d6759d499820e",
+      "bytes": 4608,
+      "suite": "provenance",
+      "case": "pdf-rotate",
+      "expect": "words in reading order; boxes IoU>=0.95 in displayed crop frame",
+      "truth": "truth/geom-r180.pdf.json",
+      "truth_sha256": "4335f2aef4dac51ffb8f15ad6a5deaf849b91d9b64b9f4aeda5e44db39f506e3"
+    },
+    {
+      "name": "geom-r270.pdf",
+      "sha256": "3e49afccb2ae1cfdba2a05194fef9e0825544c367e6bce343407443f4e647e0d",
+      "bytes": 4608,
+      "suite": "provenance",
+      "case": "pdf-rotate",
+      "expect": "words in reading order; boxes IoU>=0.95 in displayed crop frame",
+      "truth": "truth/geom-r270.pdf.json",
+      "truth_sha256": "1d0b913ab56f3f23d3b81876590bb5218f038ad0d82a4aab6d2f4f2eacee6fc7"
+    },
+    {
+      "name": "geom-r90.pdf",
+      "sha256": "8a833dd172e3278c1af0706a9a65bf70f280dc84cc6e4bb6ca081888d9883165",
+      "bytes": 4607,
+      "suite": "provenance",
+      "case": "pdf-rotate",
+      "expect": "words in reading order; boxes IoU>=0.95 in displayed crop frame",
+      "truth": "truth/geom-r90.pdf.json",
+      "truth_sha256": "e2a56e1e154d9375aeaff305922e8ef6d9c90374db247f8460edf592d462192a"
+    },
+    {
+      "name": "ocr-crop-r0.pdf",
+      "sha256": "f87075739e93e50f8c5fadc47b77257b8369c3061da5fe2f05d0c686f4bf05e5",
+      "bytes": 23156,
+      "suite": "provenance",
+      "case": "ocr-upright",
+      "expect": "OCR boxes in displayed crop frame; nothing outside crop; sideways text never invents boxes",
+      "truth": "truth/ocr-crop-r0.pdf.json",
+      "truth_sha256": "02369153596e0ea620fe465350a33e65ac8086524de7fce0ee94a7b007a38562"
+    },
+    {
+      "name": "ocr-r0.pdf",
+      "sha256": "9245d1a8aa30cdb336129989aeeab5847debff67b4645460abaf807c0c5cd6c3",
+      "bytes": 19363,
+      "suite": "provenance",
+      "case": "ocr-upright",
+      "expect": "OCR boxes in displayed crop frame; nothing outside crop; sideways text never invents boxes",
+      "truth": "truth/ocr-r0.pdf.json",
+      "truth_sha256": "aa8b780d5d0e2e2bc04e7f4d9fd8a1de2fd793307b028f3dbe65142554346fe2"
+    },
+    {
+      "name": "ocr-r180-crop.pdf",
+      "sha256": "3ddc3a121147c511ee00596aba632e2aced690a5c2563cc42bc82be24ef152e2",
+      "bytes": 23173,
+      "suite": "provenance",
+      "case": "ocr-upright",
+      "expect": "OCR boxes in displayed crop frame; nothing outside crop; sideways text never invents boxes",
+      "truth": "truth/ocr-r180-crop.pdf.json",
+      "truth_sha256": "304c4b47981c6b1aad80c287e29a2ea2a5cf7e001ade2ae27414f9ee890ba848"
+    },
+    {
+      "name": "ocr-r270-upright.pdf",
+      "sha256": "4042446be5694e5dc2645cbcbe0f4bd56998b5a8d167446b68bfcf69686e51b1",
+      "bytes": 19280,
+      "suite": "provenance",
+      "case": "ocr-upright",
+      "expect": "OCR boxes in displayed crop frame; nothing outside crop; sideways text never invents boxes",
+      "truth": "truth/ocr-r270-upright.pdf.json",
+      "truth_sha256": "df7330a67611a5484475d94876f17a3b0d3fbcb00a66a0c71f1ff10bc6225e70"
+    },
+    {
+      "name": "ocr-r90-sideways.pdf",
+      "sha256": "c71fc5dd270976bd16cc9f4a334395eb931b93146a8e0df22b943cb30b0ccde7",
+      "bytes": 19374,
+      "suite": "provenance",
+      "case": "ocr-sideways",
+      "expect": "OCR boxes in displayed crop frame; nothing outside crop; sideways text never invents boxes",
+      "truth": "truth/ocr-r90-sideways.pdf.json",
+      "truth_sha256": "440cffce0d39fb31d82181734291217e1b01022e6fc5ae50fbe886d6a71c2fbd"
+    },
+    {
+      "name": "ocr-r90-upright.pdf",
+      "sha256": "bd7e6c5f0cc06dea55ca4b4d3716f1b5627f98999822067e81df1c534fb5808b",
+      "bytes": 19280,
+      "suite": "provenance",
+      "case": "ocr-upright",
+      "expect": "OCR boxes in displayed crop frame; nothing outside crop; sideways text never invents boxes",
+      "truth": "truth/ocr-r90-upright.pdf.json",
+      "truth_sha256": "186b8f49f21a0c05c3f9e15095de78a5197fb57bcea3375884a8a8bda315bcac"
+    },
+    {
+      "name": "pdf-50-pages.pdf",
+      "sha256": "962982478fca456b6c40d2553e52040500dd17f4229d61fc3f779365b6e41897",
+      "bytes": 21156,
+      "suite": "parser",
+      "case": "page-limit-boundary"
+    },
+    {
+      "name": "pdf-51-pages.pdf",
+      "sha256": "9ccb33191251d7e6b1fe769acf754ade14d4ba5e84edf087c650804611d23b80",
+      "bytes": 21658,
+      "suite": "parser",
+      "case": "page-limit"
+    },
+    {
+      "name": "pdf-deep-nesting.pdf",
+      "sha256": "238150ce4729ff9ac25afe9171c52cf6bcb163316a78bb3e39a2e4b1c268e918",
+      "bytes": 100386,
+      "suite": "parser",
+      "case": "recursion"
+    },
+    {
+      "name": "pdf-flate-bomb.pdf",
+      "sha256": "20ff2ce519851c7218c117d1b2527efabd51dd39762326fed8eee1052c26d0d5",
+      "bytes": 611960,
+      "suite": "parser",
+      "case": "decompression-bomb-pdf"
+    },
+    {
+      "name": "pdf-form-bomb.pdf",
+      "sha256": "979fa2fc042c0124d10d9b74dfce6cc765092165dc7b1d06a4f3e98b5c0beb1e",
+      "bytes": 7499,
+      "suite": "parser",
+      "case": "cpu-exhaustion"
+    },
+    {
+      "name": "pdf-garbage-xref.pdf",
+      "sha256": "209aa71cdfad04bc1aa40d7f874f8ba169f6555845573649242743417af6522d",
+      "bytes": 4606,
+      "suite": "parser",
+      "case": "malformed-pdf"
+    },
+    {
+      "name": "pdf-js-launch.pdf",
+      "sha256": "25487dae29994944a429b0d3b78cb308bcf29ea685d63d71f4a27ba16cba6b1e",
+      "bytes": 4615,
+      "suite": "parser",
+      "case": "active-content",
+      "expect": "parsed as data only"
+    },
+    {
+      "name": "pdf-no-header.pdf",
+      "sha256": "bb331400b30216686bec1cd287ebee0760a942f7a6093f58389f671a74ce0ed9",
+      "bytes": 4587,
+      "suite": "parser",
+      "case": "malformed-pdf"
+    },
+    {
+      "name": "pdf-ocr-huge-page.pdf",
+      "sha256": "011d606e4582cd0e1215e14d82e81b3c71e3c0fb759a9ad2a00c30314abeee97",
+      "bytes": 6483,
+      "suite": "parser",
+      "case": "ocr-page-size-limit"
+    },
+    {
+      "name": "pdf-ocr-page-11.pdf",
+      "sha256": "f1de65f528b00b40a6df42641900bd7f14dc041955a334be8274b27525aa2676",
+      "bytes": 22704,
+      "suite": "parser",
+      "case": "ocr-page-limit"
+    },
+    {
+      "name": "pdf-truncated.pdf",
+      "sha256": "2fce7e4720d791c4f7e75e5548357a02e26de8b6eb4445ba00ffe735098ba499",
+      "bytes": 2298,
+      "suite": "parser",
+      "case": "malformed-pdf"
+    },
+    {
+      "name": "uni-combining-supplementary.pdf",
+      "sha256": "e8bca080ef75cf798176d047385434f6bf9897e159103152c6a89f44f0098fe1",
+      "bytes": 4652,
+      "suite": "provenance",
+      "case": "unicode-preservation",
+      "expect": "exact scalar preservation; offsets are Unicode-scalar offsets",
+      "truth": "truth/uni-combining-supplementary.pdf.json",
+      "truth_sha256": "8877e6c2f5a37d7d3c7a660835b2a125b3398ef517af4d8d85b5c5039e9ee69d"
+    },
+    {
+      "name": "uni-inv-arabic-digits.pdf",
+      "sha256": "b661297ee81aa85e21cc6213b9be1f81eae0f1754146ad32d096389b1dcea200",
+      "bytes": 4690,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "mixed-script digits",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-arabic-digits.pdf.json",
+      "truth_sha256": "8852b38ada7293832b7f5d9c4341dbd7a641de21b4fece6c5f198841d686e13a"
+    },
+    {
+      "name": "uni-inv-bidi-id.pdf",
+      "sha256": "1b52cb7dbfebd2664daaca5b7d7290c2700153158775b60e133dd592e0cb1ab0",
+      "bytes": 4690,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "RLO reverses displayed id",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-bidi-id.pdf.json",
+      "truth_sha256": "ba755dada2032f2622081a7bb26054960dd719a5f474df71b6ef9c40152c1c49"
+    },
+    {
+      "name": "uni-inv-control.pdf",
+      "sha256": "7a587973672b635a56e26f704854bbc06c8402ac2656c7156c74efaf93ba86c3",
+      "bytes": 4675,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "baseline: identical layout, plain ASCII",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-control.pdf.json",
+      "truth_sha256": "9d85ddf6d939f7ec556f6a202597315b7f8d0eb123692e0e28271ba9ecb190ef"
+    },
+    {
+      "name": "uni-inv-cyrillic-issuer.pdf",
+      "sha256": "055832a6634d796854b8198cc74cd7db74517facf43177030de31b5b198a9286",
+      "bytes": 4690,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "Cyrillic A issuer",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-cyrillic-issuer.pdf.json",
+      "truth_sha256": "c731907edd41c8a0464d28e93fcdca985660df4b1e3e9fa3f31fe7e396273724"
+    },
+    {
+      "name": "uni-inv-homoglyph-id.pdf",
+      "sha256": "fe60f3f8f0ba3d5ab1aee02e1a7031f0f0df109fa7ae381b3f34af3aef61277a",
+      "bytes": 4686,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "Cyrillic I in invoice id",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-homoglyph-id.pdf.json",
+      "truth_sha256": "2d86daac54e87e96487bc7b3e5a03c1eb3be1b4220c0903eb98b3e14756b2f81"
+    },
+    {
+      "name": "uni-inv-isolate-qty.pdf",
+      "sha256": "7619db0719060b744397ec414e5db725ef6a633ec1e8f52bf3bb2c3c9cf30b88",
+      "bytes": 4691,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "bidi isolates around quantity",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-isolate-qty.pdf.json",
+      "truth_sha256": "ec9c5411d890c0931fe57cbd788d6a80364b9c0c9f47a9c9625081cbbafe1abb"
+    },
+    {
+      "name": "uni-inv-ligature-issuer.pdf",
+      "sha256": "c8e63b78034fc797e955f5bb78f9288667eb42d328756315d2e5557844a6cacf",
+      "bytes": 4698,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "fi ligature",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-ligature-issuer.pdf.json",
+      "truth_sha256": "443f9e6fd8221b7def50157700311a0d1dc250429c613ffb9d26fb880e8c4aa9"
+    },
+    {
+      "name": "uni-inv-mathbold-issuer.pdf",
+      "sha256": "f9996f9e0f97a05d281a8a419d90c3043420c36ea8bdc5fc9d2fee0811b04a31",
+      "bytes": 4690,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "math-bold (NFKC-foldable) issuer name",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-mathbold-issuer.pdf.json",
+      "truth_sha256": "474b13ccdf49004b20403cf599035c9009b4d1718fcd1a5ea02fb4f2c225435b"
+    },
+    {
+      "name": "uni-inv-zw-amounts.pdf",
+      "sha256": "b2d2357972ee211422c5377f221487c8496285d6088c852704f2eaf004018a28",
+      "bytes": 4694,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "zero-width inside quantity and face amount",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-zw-amounts.pdf.json",
+      "truth_sha256": "7cf27cb78c281d1b2501d4b975e5efbe575fc92ca7051f957b4cdf77359f14c5"
+    },
+    {
+      "name": "uni-inv-zw-id-inner.pdf",
+      "sha256": "a0c4a35cd0a2bde94cdf1f4194b96f46e93059d4f724f9c303f4b7812f70b2fd",
+      "bytes": 4690,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "ZWJ inside invoice id",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-zw-id-inner.pdf.json",
+      "truth_sha256": "8c930342f837c943e601a347edaa772dbbc0208bce5a25bfa62a93c691007120"
+    },
+    {
+      "name": "uni-inv-zw-id-suffix.pdf",
+      "sha256": "e482dd056318dff2897bc081b162acdc65535664fef4145639d02bb24ecff27a",
+      "bytes": 4690,
+      "suite": "provenance",
+      "case": "unicode-invoice",
+      "description": "ZWSP hides trailing digit",
+      "document_role": "invoice",
+      "truth": "truth/uni-inv-zw-id-suffix.pdf.json",
+      "truth_sha256": "56facb468705008ac42b78e4794feec34aa67059ba3e1f1ca0233a3e1bc3128f"
+    },
+    {
+      "name": "uni-lone-surrogate.pdf",
+      "sha256": "1730749473fc7260a16ec0121daa868f6d4fef3341e49cec602957ffee409623",
+      "bytes": 4510,
+      "suite": "provenance",
+      "case": "unicode-lone-surrogate",
+      "expect": "rejected or replaced visibly; never an unencodable string"
+    },
+    {
+      "name": "uni-nul.pdf",
+      "sha256": "b70a5f13e1278011ff485868200f02e8472d3aefd07ecb046e1f67f58fb7881b",
+      "bytes": 4527,
+      "suite": "provenance",
+      "case": "unicode-nul",
+      "expect": "rejected before storage (PostgreSQL text cannot hold U+0000)"
+    },
+    {
+      "name": "xlsx-21-sheets.xlsx",
+      "sha256": "68b56aed2f89cd26f7c3e66ce54260c7e1e66907a620dfd0489f0a50840cf723",
+      "bytes": 8486,
+      "suite": "parser",
+      "case": "sheet-limit"
+    },
+    {
+      "name": "xlsx-absolute-path.xlsx",
+      "sha256": "852d894d58381111e4951678160d9426643ed632ae1c350a94154c2f68ef6a3c",
+      "bytes": 1776,
+      "suite": "parser",
+      "case": "zip-absolute-path"
+    },
+    {
+      "name": "xlsx-dde-formulas.xlsx",
+      "sha256": "017dc0bf1cb9e06e7943dec9a26092cb24d625c217959d22f5305d2c2d8d5d4e",
+      "bytes": 1802,
+      "suite": "parser",
+      "case": "formula-dde",
+      "expect": "formula text returned, never evaluated; requires review"
+    },
+    {
+      "name": "xlsx-dup-sheet-case.xlsx",
+      "sha256": "59a14f682277d8ba1fbd2029f2da3f6c10233e10c368a79d22b0aba2366c09a7",
+      "bytes": 2052,
+      "suite": "provenance",
+      "case": "xlsx-duplicate-sheet",
+      "expect": "rejected or disambiguated by sheetId; never merged or renamed",
+      "truth": "truth/xlsx-dup-sheet-case.xlsx.json",
+      "truth_sha256": "df918c1d20014294e467642050cb10f6d5ca9b1493a4221bbcbe23c560c84ef6"
+    },
+    {
+      "name": "xlsx-dup-sheet-exact.xlsx",
+      "sha256": "227baf249f43d45b70087ef0db3452b476d32f215912b380a47edf399995bdfe",
+      "bytes": 2042,
+      "suite": "provenance",
+      "case": "xlsx-duplicate-sheet",
+      "expect": "rejected or disambiguated by sheetId; never merged or renamed",
+      "truth": "truth/xlsx-dup-sheet-exact.xlsx.json",
+      "truth_sha256": "d2575740e156ad49ab3598faf85ae918163466045b63f37865418f20fdc6297c"
+    },
+    {
+      "name": "xlsx-dup-sheet-nfd.xlsx",
+      "sha256": "7858ce94db89db61549651b6d69524ffb55b7fa472789526760c053d9114caa6",
+      "bytes": 2051,
+      "suite": "provenance",
+      "case": "xlsx-duplicate-sheet",
+      "expect": "rejected or disambiguated by sheetId; never merged or renamed",
+      "truth": "truth/xlsx-dup-sheet-nfd.xlsx.json",
+      "truth_sha256": "bab638c6ee5a959e4a9e1abd9760540c5a796361eac60853c86aba956d2da8ee"
+    },
+    {
+      "name": "xlsx-external-hyperlink-rel.xlsx",
+      "sha256": "583bc3a97d9590691b7c93fe2f2b8af55ce9a038a7eef819cf241318dc48c931",
+      "bytes": 1990,
+      "suite": "parser",
+      "case": "external-relationship",
+      "expect": "never fetched (network none)"
+    },
+    {
+      "name": "xlsx-external-link.xlsx",
+      "sha256": "8cf49b763fd3b5c39145b6d87e4aa57142b3e5024c5b00691b12cbcd8d9c1ff5",
+      "bytes": 2482,
+      "suite": "parser",
+      "case": "external-link-dde"
+    },
+    {
+      "name": "xlsx-formulas.xlsx",
+      "sha256": "417f2985a7165cdf801f4c2bf04a8b93b33824f48a30987d1020669c14cd5bf6",
+      "bytes": 1770,
+      "suite": "provenance",
+      "case": "xlsx-formula-cache",
+      "expect": "formula text and cached value separate; absent cache stays None; never evaluated",
+      "truth": "truth/xlsx-formulas.xlsx.json",
+      "truth_sha256": "7e2ba8142a89a7838c4fdbb53686ead4fc4dbc6baf9f4bd032a27a7108780c67"
+    },
+    {
+      "name": "xlsx-many-entries.xlsx",
+      "sha256": "82de742fea56c5a431f2c5a128989fe8fb4afd7cb034c43e2d439ee72cd5acec",
+      "bytes": 36248,
+      "suite": "parser",
+      "case": "zip-entry-limit"
+    },
+    {
+      "name": "xlsx-path-traversal.xlsx",
+      "sha256": "3c2e3ed3561dd5f988e5be4780a0309059b3d8a2d34dc0141ff5fd790014864b",
+      "bytes": 1778,
+      "suite": "parser",
+      "case": "zip-path-traversal"
+    },
+    {
+      "name": "xlsx-vba.xlsx",
+      "sha256": "1c13a0e393aa882cf63fbe1990987e3442fc5b8cf91fc402bf5cef76654328a4",
+      "bytes": 1787,
+      "suite": "parser",
+      "case": "macro-container"
+    },
+    {
+      "name": "xlsx-xxe.xlsx",
+      "sha256": "e711d51c7625722e8f740461455d1ab29c6e3104b9e8e4f6f0b4247ab8d7078c",
+      "bytes": 1719,
+      "suite": "parser",
+      "case": "xml-external-entity"
+    },
+    {
+      "name": "xlsx-zip-bomb-lying-size.xlsx",
+      "sha256": "5dc3133c9558fde9edb7185b1fdaabd5971f9003fff04c833b46a74c1aa99c07",
+      "bytes": 409201,
+      "suite": "parser",
+      "case": "decompression-bomb-xlsx-lying-header"
+    },
+    {
+      "name": "xlsx-zip-bomb.xlsx",
+      "sha256": "1a3277afd168ba54f4b9d3a2fd4e1a5aded5489aa97d1a72e923f3c354a65449",
+      "bytes": 409596,
+      "suite": "parser",
+      "case": "decompression-bomb-xlsx"
+    }
+  ]
+}

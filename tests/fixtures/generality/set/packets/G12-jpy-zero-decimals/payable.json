@@ -1,0 +1,15 @@
+{
+  "id": "5fd01a98-2515-1c07-a6f7-7cb12730b203",
+  "revision": 4,
+  "supplier": "Kirishima Precision K.K.",
+  "invoice_key": "KP-23017",
+  "invoice_face_amount": "1293600",
+  "recognized_quantity": "0",
+  "net_amount": "0",
+  "tax_amount": "0",
+  "gross_amount": "0",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "JPY"
+}

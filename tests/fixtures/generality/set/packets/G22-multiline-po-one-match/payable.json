@@ -1,0 +1,15 @@
+{
+  "id": "e3c04347-9510-10a6-a106-f47a325cd8bc",
+  "revision": 4,
+  "supplier": "Ridgeway Horticulture LLC",
+  "invoice_key": "RH-90044",
+  "invoice_face_amount": "669.38",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

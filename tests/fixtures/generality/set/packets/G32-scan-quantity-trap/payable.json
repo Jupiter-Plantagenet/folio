@@ -1,0 +1,15 @@
+{
+  "id": "b7e4b6f3-cdff-014d-504c-695bcaaf4f53",
+  "revision": 4,
+  "supplier": "Elderfield Machine Parts",
+  "invoice_key": "EMP-4471",
+  "invoice_face_amount": "6220.80",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

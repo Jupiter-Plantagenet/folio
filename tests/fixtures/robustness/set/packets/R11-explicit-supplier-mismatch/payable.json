@@ -1,0 +1,15 @@
+{
+  "id": "e3a59bdc-82a8-9b19-3ca4-31db83f769bf",
+  "revision": 3,
+  "supplier": "Juniper Office GmbH",
+  "invoice_key": "INV-CT-301",
+  "invoice_face_amount": "450.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

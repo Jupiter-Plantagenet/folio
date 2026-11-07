@@ -1,0 +1,8 @@
+*
+!folio/
+!folio/parser.py
+!folio/formats.py
+!folio/intake_limits.py
+!ops/
+!ops/parser.Dockerfile
+!ops/parser-requirements.lock

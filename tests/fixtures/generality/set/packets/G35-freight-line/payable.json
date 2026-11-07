@@ -1,0 +1,15 @@
+{
+  "id": "dc1e16bd-66df-9bf9-8323-4410e2d0cf58",
+  "revision": 4,
+  "supplier": "Hollins Pottery Supply",
+  "invoice_key": "HPS-552",
+  "invoice_face_amount": "1085.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

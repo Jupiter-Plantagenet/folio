@@ -1,0 +1,15 @@
+{
+  "id": "7429ba3d-f405-4fb8-b0f3-51c67cfdc39f",
+  "revision": 3,
+  "supplier": "Quillon Stationers",
+  "invoice_key": "INV-QS-0931",
+  "invoice_face_amount": "82.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

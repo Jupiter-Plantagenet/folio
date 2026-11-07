@@ -1,0 +1,15 @@
+{
+  "id": "8394f475-a364-b0cb-46c3-76a49fb67a6f",
+  "revision": 3,
+  "supplier": "Larkspur Ceramics SA",
+  "invoice_key": "INV-LC-2400",
+  "invoice_face_amount": "3600.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

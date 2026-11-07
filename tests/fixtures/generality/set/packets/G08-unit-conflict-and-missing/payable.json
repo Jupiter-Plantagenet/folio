@@ -1,0 +1,15 @@
+{
+  "id": "193103f7-dd5f-b547-913d-505665a72e30",
+  "revision": 4,
+  "supplier": "Fernhill Catering Goods",
+  "invoice_key": "FCG-118",
+  "invoice_face_amount": "300.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

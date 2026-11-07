@@ -1,0 +1,15 @@
+{
+  "id": "dca47fac-e89a-6b8e-a847-32d83d3ba89d",
+  "revision": 4,
+  "supplier": "Prairie Seed House",
+  "invoice_key": "PSH-610",
+  "invoice_face_amount": "200.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

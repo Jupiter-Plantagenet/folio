@@ -1,0 +1,390 @@
+{
+  "set": "robustness-r5",
+  "tasks": {
+    "R01-colon-synonyms": {
+      "slice": "layout",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "140"
+        }
+      ],
+      "meta": {
+        "layout": "colon labels and synonyms"
+      },
+      "expect": {
+        "invoice": "BW-20931",
+        "invoice_quantity": "150",
+        "ordered_quantity": "150",
+        "received_quantity": "140",
+        "unit_price": "18.40",
+        "tax_rate": "0.0725",
+        "invoice_face_amount": "2960.10",
+        "supplier": "Brightwater Instruments Inc",
+        "supplier_check": "match"
+      }
+    },
+    "R02-two-column-de": {
+      "slice": "locale",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "1150"
+        }
+      ],
+      "meta": {
+        "layout": "two-column",
+        "locale": "de"
+      },
+      "expect": {
+        "invoice_quantity": "1200",
+        "ordered_quantity": "1200",
+        "received_quantity": "1150",
+        "unit_price": "2.50",
+        "tax_rate": "0.19",
+        "invoice_face_amount": "3570.00",
+        "supplier": "Falkner Logistik GmbH",
+        "supplier_check": "match"
+      }
+    },
+    "R03-tables-csv-note": {
+      "slice": "layout",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "44"
+        }
+      ],
+      "meta": {
+        "layout": "line-item tables",
+        "receipt": "csv with remarks row"
+      },
+      "expect": {
+        "invoice_quantity": "48",
+        "ordered_quantity": "48",
+        "received_quantity": "44",
+        "unit_price": "36.50",
+        "tax_rate": "0",
+        "invoice_face_amount": "1752.00",
+        "supplier": "Oakhurst Foods, LLC",
+        "supplier_check": "match"
+      }
+    },
+    "R04-boxed-stacked": {
+      "slice": "layout",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "60"
+        }
+      ],
+      "meta": {
+        "layout": "boxed, label above value"
+      },
+      "expect": {
+        "invoice_quantity": "64",
+        "ordered_quantity": "64",
+        "received_quantity": "60",
+        "unit_price": "12.25",
+        "tax_rate": "0.05",
+        "invoice_face_amount": "823.20",
+        "supplier_check": "match"
+      }
+    },
+    "R05-receipt-notes": {
+      "slice": "free_text",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "36"
+        }
+      ],
+      "meta": {
+        "receipt": "two-column with notes"
+      },
+      "expect": {
+        "invoice_quantity": "40",
+        "ordered_quantity": "40",
+        "received_quantity": "36",
+        "supplier_check": "match"
+      }
+    },
+    "R06-receipt-hostile-notes": {
+      "slice": "free_text",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "18"
+        }
+      ],
+      "meta": {
+        "receipt": "instruction-like notes"
+      },
+      "expect": {
+        "invoice_quantity": "20",
+        "ordered_quantity": "20",
+        "received_quantity": "18",
+        "supplier_check": "match"
+      }
+    },
+    "R07-receipt-second-quantity": {
+      "slice": "ambiguous",
+      "allowed": [
+        {
+          "mode": "hold"
+        },
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "receipt": "two labelled quantities"
+      },
+      "expect": {
+        "received_quantity": null
+      }
+    },
+    "R08-ambiguous-thousands": {
+      "slice": "ambiguous",
+      "allowed": [
+        {
+          "mode": "hold"
+        },
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "number": "1,200 without locale evidence"
+      },
+      "expect": {
+        "invoice_quantity": null
+      }
+    },
+    "R09-fr-locale": {
+      "slice": "locale",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "200"
+        }
+      ],
+      "meta": {
+        "locale": "fr"
+      },
+      "expect": {
+        "invoice": "FA-2207",
+        "invoice_quantity": "240",
+        "unit_price": "12.50",
+        "tax_rate": "0.2",
+        "invoice_face_amount": "3600.00",
+        "received_quantity": "200",
+        "supplier_check": "match"
+      }
+    },
+    "R10-space-grouped": {
+      "slice": "ambiguous",
+      "allowed": [
+        {
+          "mode": "hold"
+        },
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "number": "2 400 as two words"
+      },
+      "expect": {
+        "invoice_quantity": null
+      }
+    },
+    "R11-explicit-supplier-mismatch": {
+      "slice": "supplier",
+      "allowed": [
+        {
+          "mode": "escalate"
+        },
+        {
+          "mode": "hold"
+        }
+      ],
+      "meta": {
+        "supplier": "explicit From label mismatch"
+      },
+      "expect": {
+        "supplier_check": "conflict",
+        "conflict": "supplier"
+      }
+    },
+    "R12-letterhead-mismatch": {
+      "slice": "supplier",
+      "allowed": [
+        {
+          "mode": "escalate"
+        },
+        {
+          "mode": "hold"
+        }
+      ],
+      "meta": {
+        "supplier": "letterhead mismatch"
+      },
+      "expect": {
+        "supplier_check": "conflict",
+        "conflict": "supplier"
+      }
+    },
+    "R13-legal-suffix-match": {
+      "slice": "supplier",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "90"
+        }
+      ],
+      "meta": {
+        "supplier": "Limited vs LTD, & vs AND"
+      },
+      "expect": {
+        "invoice_quantity": "90",
+        "received_quantity": "90",
+        "supplier_check": "match"
+      }
+    },
+    "R14-ocr-receipt": {
+      "slice": "scan",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "75"
+        }
+      ],
+      "meta": {
+        "scan": "receipt, angle 0.7, noise 6, blur 0.6"
+      },
+      "expect": {
+        "received_quantity": "75",
+        "ocr_or_unresolved": [
+          "received_quantity"
+        ]
+      }
+    },
+    "R15-ocr-invoice-grouped": {
+      "slice": "scan",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "1200"
+        }
+      ],
+      "meta": {
+        "scan": "invoice, angle -0.9, noise 8, blur 0.7"
+      },
+      "expect": {
+        "invoice_quantity": "1250",
+        "ocr_or_unresolved": [
+          "invoice_quantity",
+          "invoice_face_amount",
+          "unit_price",
+          "invoice"
+        ]
+      }
+    },
+    "R16-ocr-receipt-heavy": {
+      "slice": "scan",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "16"
+        },
+        {
+          "mode": "hold"
+        }
+      ],
+      "meta": {
+        "scan": "receipt, angle 1.6, noise 40, blur 1.3, low resolution"
+      },
+      "expect": {
+        "received_quantity": "16",
+        "ocr_or_unresolved": [
+          "received_quantity"
+        ]
+      }
+    },
+    "R17-multi-line-table": {
+      "slice": "ambiguous",
+      "allowed": [
+        {
+          "mode": "hold"
+        },
+        {
+          "mode": "escalate"
+        }
+      ],
+      "meta": {
+        "layout": "two invoice lines"
+      },
+      "expect": {
+        "invoice_quantity": null
+      }
+    },
+    "R18-xlsx-receipt-note": {
+      "slice": "free_text",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "22"
+        }
+      ],
+      "meta": {
+        "receipt": "xlsx with remarks row"
+      },
+      "expect": {
+        "received_quantity": "22",
+        "supplier_check": "match"
+      }
+    },
+    "R19-eur-amounts": {
+      "slice": "ambiguous",
+      "allowed": [
+        {
+          "mode": "escalate"
+        },
+        {
+          "mode": "hold"
+        }
+      ],
+      "meta": {
+        "currency": "EUR amounts"
+      },
+      "expect": {
+        "unit_price": null,
+        "invoice_face_amount": null,
+        "conflict": "currency"
+      }
+    },
+    "R20-de-po-table": {
+      "slice": "locale",
+      "allowed": [
+        {
+          "mode": "partial",
+          "quantity": "2500"
+        }
+      ],
+      "meta": {
+        "locale": "de",
+        "layout": "PO table"
+      },
+      "expect": {
+        "invoice_quantity": "2500",
+        "ordered_quantity": "2500",
+        "received_quantity": "2500",
+        "unit_price": "0.08",
+        "tax_rate": "0.19",
+        "invoice_face_amount": "238.00",
+        "supplier_check": "match"
+      }
+    }
+  }
+}

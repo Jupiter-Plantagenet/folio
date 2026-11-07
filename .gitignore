@@ -1,0 +1,33 @@
+.venv/
+.local/
+node_modules/
+__pycache__/
+.pytest_cache/
+playwright-report/
+.env
+.cache/
+web/dist/
+web/test-results/
+test-results/
+
+# Raw proof artifacts and held-out sets stay on disk, out of version control (2026-11-04)
+evidence/
+evaluation-sealed/
+work/
+docs/round*-logs/
+evidence-*.log
+native-preexec.jsonl
+
+# Publication review and local runtime state
+.local/
+.cache/
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.pfx
+*.dump

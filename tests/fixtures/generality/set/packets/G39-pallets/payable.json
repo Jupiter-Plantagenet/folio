@@ -1,0 +1,15 @@
+{
+  "id": "6885f5b2-c3e2-d73f-c4c0-c4931b6d9d76",
+  "revision": 4,
+  "supplier": "Stavanger Blockworks",
+  "invoice_key": "SB-1904",
+  "invoice_face_amount": "1240.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

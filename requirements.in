@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+psycopg[binary]
+httpx
+pytest
+python-multipart
+pdfplumber
+openpyxl
+reportlab
+httpx2
+ruff
+cryptography
+psutil
+

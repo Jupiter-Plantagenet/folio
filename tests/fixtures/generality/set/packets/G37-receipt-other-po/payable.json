@@ -1,0 +1,15 @@
+{
+  "id": "0c1725fe-a5b4-862d-b278-d44520811c6f",
+  "revision": 4,
+  "supplier": "Willowmere Stationers",
+  "invoice_key": "WS-2280",
+  "invoice_face_amount": "231.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

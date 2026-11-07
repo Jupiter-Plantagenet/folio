@@ -1,0 +1,15 @@
+{
+  "id": "07425d30-138a-3686-fcb5-e075c14bb58d",
+  "revision": 4,
+  "supplier": "Corvina Lighting SpA",
+  "invoice_key": "CL-3381",
+  "invoice_face_amount": "1750.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

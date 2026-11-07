@@ -1,0 +1,15 @@
+{
+  "id": "91b69c88-6800-3372-bcca-8f267e16f478",
+  "revision": 3,
+  "supplier": "Falkner Logistik GmbH",
+  "invoice_key": "RE-88412",
+  "invoice_face_amount": "3570.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

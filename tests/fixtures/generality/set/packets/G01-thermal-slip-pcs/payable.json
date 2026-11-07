@@ -1,0 +1,15 @@
+{
+  "id": "d78ce6d4-4197-5160-029c-102867da4c39",
+  "revision": 4,
+  "supplier": "Halvard Fasteners Inc",
+  "invoice_key": "HF-30418",
+  "invoice_face_amount": "801.36",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "c184c1c5-46b1-60a8-fc52-384331ee35e5",
+  "revision": 4,
+  "supplier": "Caldera Office Seating",
+  "invoice_key": "COS-7001",
+  "invoice_face_amount": "3262.50",
+  "recognized_quantity": "25",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

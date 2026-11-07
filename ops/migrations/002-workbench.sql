@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS users(username text PRIMARY KEY,salt text NOT NULL,password_hash text NOT NULL,roles jsonb NOT NULL,active boolean NOT NULL DEFAULT true);
+        CREATE TABLE IF NOT EXISTS sessions(token text PRIMARY KEY,username text REFERENCES users(username),csrf text NOT NULL,expires timestamptz NOT NULL);
+        CREATE TABLE IF NOT EXISTS cases(workspace uuid NOT NULL,id uuid NOT NULL,body jsonb NOT NULL,PRIMARY KEY(workspace,id));
+        CREATE TABLE IF NOT EXISTS proposals(workspace uuid NOT NULL,id uuid PRIMARY KEY,case_id uuid NOT NULL,body jsonb NOT NULL,FOREIGN KEY(workspace,case_id) REFERENCES cases(workspace,id));
+        CREATE TABLE IF NOT EXISTS jobs(id uuid PRIMARY KEY,workspace uuid NOT NULL,proposal uuid NOT NULL REFERENCES proposals(id),kind text NOT NULL DEFAULT 'dispatch',state text NOT NULL DEFAULT 'queued',attempt uuid,fence bigint NOT NULL DEFAULT 40,lease_until timestamptz,tries int NOT NULL DEFAULT 0,result jsonb);
+        CREATE TABLE IF NOT EXISTS commands(workspace uuid NOT NULL,actor text NOT NULL,route text NOT NULL,key uuid NOT NULL,digest text NOT NULL,result jsonb NOT NULL,PRIMARY KEY(workspace,actor,route,key));
+        CREATE TABLE IF NOT EXISTS originals(workspace uuid NOT NULL,id uuid PRIMARY KEY,case_id uuid NOT NULL,sha256 text NOT NULL,raw bytea,created_at timestamptz NOT NULL DEFAULT clock_timestamp(),deleted_at timestamptz,FOREIGN KEY(workspace,case_id) REFERENCES cases(workspace,id));
+        CREATE TABLE IF NOT EXISTS analysis_runs(id uuid PRIMARY KEY,workspace uuid NOT NULL,case_id uuid NOT NULL,body jsonb NOT NULL,status text NOT NULL DEFAULT 'queued',lease_until timestamptz,attempt uuid,tries int NOT NULL DEFAULT 0,FOREIGN KEY(workspace,case_id) REFERENCES cases(workspace,id));
+        CREATE TABLE IF NOT EXISTS events(sequence bigserial PRIMARY KEY,workspace uuid NOT NULL,case_id uuid,kind text NOT NULL,actor text NOT NULL,at timestamptz NOT NULL DEFAULT clock_timestamp(),body jsonb NOT NULL);
+        

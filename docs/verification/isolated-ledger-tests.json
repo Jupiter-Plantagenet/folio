@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "passed": 50,
+  "selection": [
+    "tests/test_proof.py",
+    "tests/test_arithmetic.py",
+    "tests/test_flow.py"
+  ],
+  "source_unchanged_during_run": true,
+  "environment": "Fresh private databases on the existing PostgreSQL host",
+  "log": "isolated-ledger-tests.log"
+}

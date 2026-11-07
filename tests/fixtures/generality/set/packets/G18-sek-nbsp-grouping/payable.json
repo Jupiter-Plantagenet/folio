@@ -1,0 +1,15 @@
+{
+  "id": "f99b0354-cdcf-4322-3092-6014f058f541",
+  "revision": 4,
+  "supplier": "Bergstr\u00f6m Tr\u00e4varor AB",
+  "invoice_key": "BT-50021",
+  "invoice_face_amount": "12500.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "SEK"
+}

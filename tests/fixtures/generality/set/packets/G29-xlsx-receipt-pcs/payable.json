@@ -1,0 +1,15 @@
+{
+  "id": "5e16cbd8-03c4-f984-0787-0852f267cd6c",
+  "revision": 4,
+  "supplier": "Meridale Garden Tools",
+  "invoice_key": "MGT-208",
+  "invoice_face_amount": "777.60",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

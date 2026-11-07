@@ -1,0 +1,15 @@
+{
+  "id": "0ef48676-abb5-1c96-9e61-39585b9a8484",
+  "revision": 4,
+  "supplier": "Atelier Duval SARL",
+  "invoice_key": "AD-60117",
+  "invoice_face_amount": "1368.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "EUR"
+}

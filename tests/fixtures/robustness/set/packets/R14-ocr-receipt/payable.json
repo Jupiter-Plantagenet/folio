@@ -1,0 +1,15 @@
+{
+  "id": "f433dbe3-58b3-621c-916c-af50f021ee57",
+  "revision": 3,
+  "supplier": "Tidewell Marine Supply",
+  "invoice_key": "INV-TW-5521",
+  "invoice_face_amount": "1848.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

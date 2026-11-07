@@ -1,0 +1,15 @@
+{
+  "id": "b4f58057-742c-d602-e366-c04943bee716",
+  "revision": 4,
+  "supplier": "Osterwald Paper Mills",
+  "invoice_key": "OPM-4410",
+  "invoice_face_amount": "1524.16",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

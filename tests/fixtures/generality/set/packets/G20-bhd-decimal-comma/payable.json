@@ -1,0 +1,15 @@
+{
+  "id": "3e9b7ae7-ffa3-6541-ac5d-93a0039cc27f",
+  "revision": 4,
+  "supplier": "Dilmun Marine Services W.L.L.",
+  "invoice_key": "DMS-0412",
+  "invoice_face_amount": "1192.950",
+  "recognized_quantity": "0",
+  "net_amount": "0.000",
+  "tax_amount": "0.000",
+  "gross_amount": "0.000",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "BHD"
+}

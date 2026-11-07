@@ -1,0 +1,15 @@
+{
+  "id": "86fe7fb1-602f-b0da-0e70-a1c203221897",
+  "revision": 4,
+  "supplier": "Marlowe Packaging Ltd",
+  "invoice_key": "MPL-7731",
+  "invoice_face_amount": "246.24",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "GBP"
+}

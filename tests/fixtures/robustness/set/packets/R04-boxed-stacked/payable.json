@@ -1,0 +1,15 @@
+{
+  "id": "e5cdf5cb-3caa-227a-e9eb-949e70f6769c",
+  "revision": 3,
+  "supplier": "Mossgrove Textiles",
+  "invoice_key": "INV-MT-0742",
+  "invoice_face_amount": "823.20",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

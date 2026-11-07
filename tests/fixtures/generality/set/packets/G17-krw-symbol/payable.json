@@ -1,0 +1,15 @@
+{
+  "id": "8bec2654-1ac4-2b16-1703-7f29a50531ca",
+  "revision": 4,
+  "supplier": "Hanbit Optics Co., Ltd.",
+  "invoice_key": "HO-2610-044",
+  "invoice_face_amount": "3300000",
+  "recognized_quantity": "0",
+  "net_amount": "0",
+  "tax_amount": "0",
+  "gross_amount": "0",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "KRW"
+}

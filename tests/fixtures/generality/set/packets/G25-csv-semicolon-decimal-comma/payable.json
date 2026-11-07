@@ -1,0 +1,15 @@
+{
+  "id": "09e4004b-8905-89ff-66da-0163e9db0e1a",
+  "revision": 4,
+  "supplier": "Vermeulen Drukwerk BV",
+  "invoice_key": "VD-26-0098",
+  "invoice_face_amount": "900.24",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "EUR"
+}

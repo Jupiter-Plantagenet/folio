@@ -1,0 +1,15 @@
+{
+  "id": "c3c7c26e-66dc-ff0f-ce65-1d09b21759e7",
+  "revision": 4,
+  "supplier": "Tamsin Craft Ltd",
+  "invoice_key": "TC-118",
+  "invoice_face_amount": "90.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}

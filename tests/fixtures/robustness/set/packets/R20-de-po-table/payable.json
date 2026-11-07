@@ -1,0 +1,15 @@
+{
+  "id": "814d18c5-cbbe-2b63-6033-89804437eeb4",
+  "revision": 3,
+  "supplier": "Adler Werkzeuge AG",
+  "invoice_key": "RE-90017",
+  "invoice_face_amount": "238.00",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

@@ -1,0 +1,18 @@
+{
+  "authorship": "Independently authored synthetic test assets by Folio implementation; not private documents",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "name": "invoice.pdf",
+      "sha256": "1437f2c092de195e1e230748bf3511a458fbb24957d7cfb80fa2cf027e9843f8"
+    },
+    {
+      "name": "purchase-order.pdf",
+      "sha256": "8aa68fab16734889b39b4e36a802b5aaa525b2ea02063024414b7973839fb5f6"
+    },
+    {
+      "name": "receipt.pdf",
+      "sha256": "8490015938d13f85c0d48941b12c73822570f2ac9b08c55be97b4b62531a0bda"
+    }
+  ]
+}

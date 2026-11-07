@@ -1,0 +1,45 @@
+{
+  "started_utc": "2026-11-07T04:05:20.240245+00:00",
+  "checks": [
+    {
+      "command": [
+        "PYTHON",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "log": "docs/verification/01.log"
+    },
+    {
+      "command": [
+        "PYTHON",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_agent.py::test_model_tool_authority_is_closed_and_case_bound",
+        "tests/test_agent.py::test_bounded_loop_never_treats_narrative_as_verified_or_executes_unknown_tool",
+        "tests/test_agent.py::test_model_usage_limit_blocks_before_any_tool_result_is_produced"
+      ],
+      "exit_code": 0,
+      "log": "docs/verification/02.log"
+    },
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "web",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "log": "docs/verification/03.log"
+    }
+  ],
+  "scope": "Focused checks in the current checkout",
+  "passed": true,
+  "finished_utc": "2026-11-07T04:05:22.375259+00:00",
+  "environment": "Fresh dependency installation on the original Windows host"
+}

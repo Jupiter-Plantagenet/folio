@@ -1,0 +1,15 @@
+{
+  "id": "a71af653-cdbd-27d8-92f5-28b11ca04297",
+  "revision": 3,
+  "supplier": "Bramble and Finch Ltd.",
+  "invoice_key": "INV-BF-77",
+  "invoice_face_amount": "213.84",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-31",
+  "currency": "USD"
+}

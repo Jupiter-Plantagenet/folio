@@ -1,0 +1,15 @@
+{
+  "id": "2aa02e7f-b3a7-5c49-adba-cfd0fadb6dde",
+  "revision": 4,
+  "supplier": "Pellarin Ceramics SRL",
+  "invoice_key": "PC-2026-118",
+  "invoice_face_amount": "2504.25",
+  "recognized_quantity": "0",
+  "net_amount": "0.00",
+  "tax_amount": "0.00",
+  "gross_amount": "0.00",
+  "status": "unmatched",
+  "bank_fingerprint": "synthetic-bank-unchanged",
+  "due_date": "2026-12-18",
+  "currency": "USD"
+}
