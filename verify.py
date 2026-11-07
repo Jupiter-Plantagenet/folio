@@ -11,6 +11,8 @@ ROOT = Path(__file__).resolve().parent
 COMMANDS = [['PYTHON', '-m', 'pip', 'check'], ['PYTHON', '-m', 'pytest', '-q', '-p', 'no:cacheprovider', 'tests/test_agent.py::test_model_tool_authority_is_closed_and_case_bound', 'tests/test_agent.py::test_bounded_loop_never_treats_narrative_as_verified_or_executes_unknown_tool', 'tests/test_agent.py::test_model_usage_limit_blocks_before_any_tool_result_is_produced'], ['npm', '--prefix', 'web', 'run', 'build']]
 
 def main():
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     python = ROOT / '.venv' / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
     env = dict(os.environ, PYTHONPATH=str(ROOT), PYTHONDONTWRITEBYTECODE='1')
     report = {'started_utc': datetime.now(timezone.utc).isoformat(), 'checks': [],
